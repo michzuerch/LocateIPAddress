@@ -70,8 +70,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -168,7 +166,6 @@
             <artifactId>nav-simplifier-vaadinflow</artifactId>
             <version>1.0.0.alpha3</version>
         </dependency>
-
         <dependency>
             <groupId>com.github.rozidan</groupId>
             <artifactId>logger-spring-boot</artifactId>
@@ -197,7 +194,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -238,7 +234,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>productionMode</id>
