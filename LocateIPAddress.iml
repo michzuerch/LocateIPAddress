@@ -57,6 +57,7 @@
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.vaadin:vaadin-overlay:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-date-picker-flow:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.vaadin:vaadin-date-picker:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-media-query:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-dialog-flow:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.vaadin:vaadin-dialog:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-form-layout-flow:1.0.0" level="project" />
@@ -214,25 +215,9 @@
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-autogrow-textarea:2.2.0" level="project" />
     <orderEntry type="library" name="Maven: de.kaesdingeling:hybridmenu:3.0.11.vaadin10" level="project" />
     <orderEntry type="library" name="Maven: org.ocpsoft.prettytime:prettytime:4.0.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: com.flowingcode.addons.applayout:app-layout-addon:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:app-layout:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-media-query:2.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:paper-icon-button:2.2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-icons:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:paper-listbox:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-menu-behavior:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:paper-item:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:paper-card:2.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-image:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:paper-button:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.jifalops:iron-collapse-button:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:iron-collapse:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: io.loefflefarn:nav-simplifier-vaadinflow:1.0.0.alpha3" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars.bowergithub.loefflefarn:nav-simplifier:1.0.0.beta2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.0.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.github.rozidan:logger-spring-boot:1.0.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.0.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.7" level="project" />
     <orderEntry type="library" name="Maven: au.com.bytecode:opencsv:2.4" level="project" />
