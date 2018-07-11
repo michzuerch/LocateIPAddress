@@ -62,8 +62,8 @@ public class MainLayout extends HybridMenu {
         LeftMenu leftMenu = getLeftMenu();
 
         leftMenu.add(HMLabel.get()
-                .withCaption("<b>Hybrid</b> Menu")
-                .withIcon(new Image("./frontend/logo.png", "HybridMenu Logo")));
+                .withCaption("<b>LocateIPAddress</b> Version 1.0.0")
+                .withIcon(new Image("./frontend/button.svg", "Logo")));
 
         getBreadCrumbs().setRoot(leftMenu.add(HMButton.get()
                 .withCaption("Home")
