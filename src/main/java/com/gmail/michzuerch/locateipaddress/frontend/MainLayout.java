@@ -76,13 +76,13 @@ public class MainLayout extends HybridMenu {
                 .withIcon(VaadinIcon.BELL)
                 .withNavigateTo(NotificationBuilderPage.class));
 
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Block").withNavigateTo(BlockPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Location").withNavigateTo(LocationPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Database Test").withNavigateTo(DatabaseTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Dialog Test").withNavigateTo(DialogTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Paper Toggle Test").withNavigateTo(PaperToggleButtonPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Push Test").withNavigateTo(PushTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Upload").withNavigateTo(UploadPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withCaption("Block").withNavigateTo(BlockPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.TAXI).withCaption("Location").withNavigateTo(LocationPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.VIMEO).withCaption("Database Test").withNavigateTo(DatabaseTestPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.OFFICE).withCaption("Dialog Test").withNavigateTo(DialogTestPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.OUTBOX).withCaption("Paper Toggle Test").withNavigateTo(PaperToggleButtonPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.CLOCK).withCaption("Push Test").withNavigateTo(PushTestPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.UMBRELLA).withCaption("Upload").withNavigateTo(UploadPage.class));
 
 		/*
 		leftMenu.add(HMButton.get()
