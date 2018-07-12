@@ -48,14 +48,6 @@ public class MainLayout extends HybridMenu {
 
         topMenu.add(HMTextField.get(VaadinIcon.SEARCH, "Search ..."));
 
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Block").withNavigateTo(BlockPage.class));
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Location").withNavigateTo(LocationPage.class));
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Database Test").withNavigateTo(DatabaseTestPage.class));
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Dialog Test").withNavigateTo(DialogTestPage.class));
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Paper Toggle Test").withNavigateTo(PaperToggleButtonPage.class));
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Push Test").withNavigateTo(PushTestPage.class));
-        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Upload").withNavigateTo(UploadPage.class));
-
         topMenu.add(HMButton.get()
                 .withIcon(VaadinIcon.HOME)
                 .withDescription("Home")
@@ -83,6 +75,14 @@ public class MainLayout extends HybridMenu {
                 .withCaption("Notification Builder")
                 .withIcon(VaadinIcon.BELL)
                 .withNavigateTo(NotificationBuilderPage.class));
+
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Block").withNavigateTo(BlockPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Location").withNavigateTo(LocationPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Database Test").withNavigateTo(DatabaseTestPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Dialog Test").withNavigateTo(DialogTestPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Paper Toggle Test").withNavigateTo(PaperToggleButtonPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Push Test").withNavigateTo(PushTestPage.class));
+        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Upload").withNavigateTo(UploadPage.class));
 
 		/*
 		leftMenu.add(HMButton.get()
