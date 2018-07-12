@@ -15,9 +15,7 @@
  */
 package com.gmail.michzuerch.locateipaddress.frontend;
 
-import com.gmail.michzuerch.locateipaddress.frontend.page.BlockPage;
-import com.gmail.michzuerch.locateipaddress.frontend.page.HomePage;
-import com.gmail.michzuerch.locateipaddress.frontend.page.NotificationBuilderPage;
+import com.gmail.michzuerch.locateipaddress.frontend.page.*;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Image;
@@ -50,6 +48,14 @@ public class MainLayout extends HybridMenu {
 
         topMenu.add(HMTextField.get(VaadinIcon.SEARCH, "Search ..."));
 
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Block").withNavigateTo(BlockPage.class));
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Location").withNavigateTo(LocationPage.class));
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Database Test").withNavigateTo(DatabaseTestPage.class));
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Dialog Test").withNavigateTo(DialogTestPage.class));
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Paper Toggle Test").withNavigateTo(PaperToggleButtonPage.class));
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Push Test").withNavigateTo(PushTestPage.class));
+        topMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withDescription("Upload").withNavigateTo(UploadPage.class));
+
         topMenu.add(HMButton.get()
                 .withIcon(VaadinIcon.HOME)
                 .withDescription("Home")
@@ -61,9 +67,12 @@ public class MainLayout extends HybridMenu {
 
         LeftMenu leftMenu = getLeftMenu();
 
+        Image logo = new Image("./frontend/button.svg", "Logo");
+
+
         leftMenu.add(HMLabel.get()
                 .withCaption("<b>LocateIPAddress</b> Version 1.0.0")
-                .withIcon(new Image("./frontend/button.svg", "Logo")));
+                .withIcon(logo));
 
         getBreadCrumbs().setRoot(leftMenu.add(HMButton.get()
                 .withCaption("Home")
