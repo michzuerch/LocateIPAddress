@@ -1,4 +1,4 @@
-package com.gmail.michzuerch.locateipaddress.backend.domain;
+package com.gmail.michzuerch.locateipaddress.backend.mongodb.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
