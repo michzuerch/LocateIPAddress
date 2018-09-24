@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalTime;
 import java.util.List;
 
 @Route(value = "Upload", layout = MainLayout.class)
@@ -123,7 +124,7 @@ public class UploadPage extends VerticalLayout {
                     //log.debug(LocalTime.now().format(dateTimeFormatter));
                     ui.access(() -> {
                         view.progressBar.setValue(count);
-                        view.status.setText(String.valueOf(count));
+                        view.status.setText(LocalTime.now().toString());
                     });
                 }
 
