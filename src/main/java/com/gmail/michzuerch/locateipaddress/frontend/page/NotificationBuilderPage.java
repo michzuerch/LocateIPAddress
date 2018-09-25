@@ -1,7 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.frontend.page;
 
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
-import com.gmail.michzuerch.locateipaddress.frontend.component.Slider;
+import com.gmail.michzuerch.locateipaddress.frontend.components.Slider;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -37,6 +37,7 @@ public class NotificationBuilderPage extends VerticalLayout {
         icon.setItems(VaadinIcon.values());
 
         Label displayTimeLabel = new Label("Display time (ms)");
+
         Slider displayTime = new Slider(1000, 10000);
 
         displayTime.setOnValue(5000);

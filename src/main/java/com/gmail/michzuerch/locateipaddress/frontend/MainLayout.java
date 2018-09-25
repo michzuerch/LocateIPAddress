@@ -33,7 +33,7 @@ import de.kaesdingeling.hybridmenu.components.*;
 import de.kaesdingeling.hybridmenu.data.MenuConfig;
 import de.kaesdingeling.hybridmenu.design.DesignItem;
 
-@PageTitle("LocateIPAddress 0.1")
+@PageTitle("LocateIPAddress 1.0.0-SNAPSHOT")
 @Push(PushMode.AUTOMATIC)
 @Theme(Lumo.class)
 @Viewport("width=device-width")
@@ -80,7 +80,6 @@ public class MainLayout extends HybridMenu {
         leftMenu.add(HMButton.get().withIcon(VaadinIcon.TAXI).withCaption("Location").withNavigateTo(LocationPage.class));
         leftMenu.add(HMButton.get().withIcon(VaadinIcon.VIMEO).withCaption("Database Test").withNavigateTo(DatabaseTestPage.class));
         leftMenu.add(HMButton.get().withIcon(VaadinIcon.OFFICE).withCaption("Dialog Test").withNavigateTo(DialogTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.OUTBOX).withCaption("Paper Toggle Test").withNavigateTo(PaperToggleButtonPage.class));
         leftMenu.add(HMButton.get().withIcon(VaadinIcon.CLOCK).withCaption("Push Test").withNavigateTo(PushTestPage.class));
         leftMenu.add(HMButton.get().withIcon(VaadinIcon.UMBRELLA).withCaption("Upload").withNavigateTo(UploadPage.class));
 
