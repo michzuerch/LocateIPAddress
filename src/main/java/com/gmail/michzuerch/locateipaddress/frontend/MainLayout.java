@@ -46,8 +46,6 @@ public class MainLayout extends HybridMenu {
 
         TopMenu topMenu = getTopMenu();
 
-        topMenu.add(HMTextField.get(VaadinIcon.SEARCH, "Search ..."));
-
         topMenu.add(HMButton.get()
                 .withIcon(VaadinIcon.HOME)
                 .withDescription("Home")
@@ -57,10 +55,10 @@ public class MainLayout extends HybridMenu {
                 .setNotiButton(topMenu.add(HMButton.get()
                         .withDescription("Notifications")));
 
+
         LeftMenu leftMenu = getLeftMenu();
 
         Image logo = new Image("./frontend/button.svg", "Logo");
-
 
         leftMenu.add(HMLabel.get()
                 .withCaption("<b>LocateIPAddress</b> Version 1.0.0")
@@ -71,77 +69,29 @@ public class MainLayout extends HybridMenu {
                 .withIcon(VaadinIcon.HOME)
                 .withNavigateTo(HomePage.class)));
 
-        leftMenu.add(HMButton.get()
-                .withCaption("Notification Builder")
-                .withIcon(VaadinIcon.BELL)
-                .withNavigateTo(NotificationBuilderPage.class));
+        HMSubMenu crud = leftMenu.add(HMSubMenu.get()
+                .withCaption("CRUD")
+                .withIcon(VaadinIcon.COMPILE));
 
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.PALETE).withCaption("Block").withNavigateTo(BlockPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.TAXI).withCaption("Location").withNavigateTo(LocationPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.VIMEO).withCaption("Database Test").withNavigateTo(DatabaseTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.OFFICE).withCaption("Dialog Test").withNavigateTo(DialogTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.CLOCK).withCaption("Push Test").withNavigateTo(PushTestPage.class));
-        leftMenu.add(HMButton.get().withIcon(VaadinIcon.UMBRELLA).withCaption("Upload").withNavigateTo(UploadPage.class));
-
-		/*
-		leftMenu.add(HMButton.get()
-				.withCaption("Theme Builder")
-				.withIcon(FontAwesome.WRENCH)
-				.withNavigateTo(ThemeBuilderPage.class));
-		*/
-
-        HMSubMenu memberList = leftMenu.add(HMSubMenu.get()
-                .withCaption("Member")
-                .withIcon(VaadinIcon.USERS));
-
-        memberList.add(HMButton.get()
-                .withCaption("Settings")
-                .withIcon(VaadinIcon.COGS)
+        crud.add(HMButton.get()
+                .withCaption("Blocks")
+                .withIcon(VaadinIcon.ENVELOPE)
                 .withNavigateTo(BlockPage.class));
 
-        memberList.add(HMButton.get()
-                .withCaption("Member")
-                .withIcon(VaadinIcon.USERS)
-                .withNavigateTo(BlockPage.class));
+        crud.add(HMButton.get()
+                .withCaption("Locations")
+                .withIcon(VaadinIcon.LAPTOP)
+                .withNavigateTo(LocationPage.class));
 
-        memberList.add(HMButton.get()
-                .withCaption("Group")
-                .withIcon(VaadinIcon.USERS)
-                .withNavigateTo(BlockPage.class));
+        HMSubMenu tests = leftMenu.add(HMSubMenu.get()
+                .withCaption("Test")
+                .withIcon(VaadinIcon.TEETH));
 
-        HMSubMenu memberListTwo = memberList.add(HMSubMenu.get()
-                .withCaption("Member")
-                .withIcon(VaadinIcon.USERS));
+        tests.add(HMButton.get().withCaption("Upload").withIcon(VaadinIcon.UMBRELLA).withNavigateTo(UploadPage.class));
 
-        memberListTwo.add(HMButton.get()
-                .withCaption("Settings")
-                .withIcon(VaadinIcon.COGS)
-                .withNavigateTo(BlockPage.class));
-
-        memberListTwo.add(HMButton.get()
-                .withCaption("Member")
-                .withIcon(VaadinIcon.USERS)
-                .withNavigateTo(BlockPage.class));
-
-
-        HMSubMenu demoSettings = leftMenu.add(HMSubMenu.get()
-                .withCaption("Settings")
-                .withIcon(VaadinIcon.COGS));
-
-        demoSettings.add(HMButton.get()
-                .withCaption("White Theme")
-                .withIcon(VaadinIcon.PALETE)
-                .withClickListener(e -> switchTheme(DesignItem.getWhiteDesign())));
-
-        demoSettings.add(HMButton.get()
-                .withCaption("Dark Theme")
-                .withIcon(VaadinIcon.PALETE)
-                .withClickListener(e -> switchTheme(DesignItem.getDarkDesign())));
-
-        demoSettings.add(HMButton.get()
-                .withCaption("Minimal")
-                .withIcon(VaadinIcon.COG)
-                .withClickListener(e -> getLeftMenu().toggleSize()));
+        tests.add(HMButton.get().withIcon(VaadinIcon.VIMEO).withCaption("Database Test").withNavigateTo(DatabaseTestPage.class));
+        tests.add(HMButton.get().withIcon(VaadinIcon.OFFICE).withCaption("Dialog Test").withNavigateTo(DialogTestPage.class));
+        tests.add(HMButton.get().withIcon(VaadinIcon.CLOCK).withCaption("Push Test").withNavigateTo(PushTestPage.class));
 
         return true; // build menu
     }
