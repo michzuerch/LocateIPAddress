@@ -71,6 +71,7 @@
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.vaadin:vaadin-form-layout:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-grid-flow:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.vaadin:vaadin-grid:5.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.7" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-icons-flow:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.vaadin:vaadin-icons:4.1.4" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-iron-list-flow:1.0.4" level="project" />
@@ -176,11 +177,6 @@
     <orderEntry type="library" name="Maven: org.webjars.bowergithub.polymerelements:paper-slider:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: de.kaesdingeling:hybridmenu:3.0.15.vaadin10" level="project" />
     <orderEntry type="library" name="Maven: org.ocpsoft.prettytime:prettytime:4.0.1.Final" level="project" />
-    <orderEntry type="library" name="Maven: com.github.rozidan:logger-spring-boot:1.0.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.7" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.13" level="project" />
     <orderEntry type="library" name="Maven: au.com.bytecode:opencsv:2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-net:commons-net:3.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.0.5.RELEASE" level="project" />
@@ -208,6 +204,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.restdocs:spring-restdocs-core:2.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: com.vaadin:flow-server-production-mode:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.9.RELEASE" level="project" />
   </component>
 </module>
