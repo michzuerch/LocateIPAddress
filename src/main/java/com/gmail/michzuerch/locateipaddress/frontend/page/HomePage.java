@@ -4,7 +4,6 @@ import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "", layout = MainLayout.class)

@@ -1,3 +1,8 @@
+info:
+  app:
+    name: LocateIPAddress
+    description: Geolocation of IP-Addresses
+    version: 1.0.0-SNAPSHOT
 server:
   servlet:
     session:
@@ -26,6 +31,13 @@ management:
   endpoint:
     health:
       show-details: always
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    sessions:
+      enabled: true
+
 logging:
   level:
     org.springframework.web: ERROR
