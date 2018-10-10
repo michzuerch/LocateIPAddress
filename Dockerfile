@@ -1,5 +1,7 @@
-FROM openjdk:10-jre-slim
-COPY ./target/LocateIPAddress-1.0.0-SNAPSHOT.jar /usr/src/michzuerch/
-WORKDIR /usr/src/michzuerch
+FROM openjdk:10-jdk
+LABEL maintainer="michzuerch@gmail.com"
+VOLUME /tmp
+ADD target/locateipaddress.jar locateipaddress.jar
 EXPOSE 8080
-CMD ["java", "-jar", "LocateIPAddress-1.0.0-SNAPSHOT.jar"]
+RUN sh -c 'touch /locateipaddress.jar'
+ENTRYPOINT ["java", "-Dspring.data.mongodb.uri=mongodb://mongodb/test", "-Djava.security.egd=file:/dev/./urandom","-jar","/locateipaddress.jar"]

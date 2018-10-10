@@ -16,9 +16,7 @@ vaadin:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: locateipaddress
+      uri: mongodb://mongodb:27000/test
     rest:
       basepath: /api
   h2:

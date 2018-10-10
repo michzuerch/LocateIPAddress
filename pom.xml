@@ -145,21 +145,54 @@
     </dependencies>
 
     <build>
+        <finalName>locateipaddress</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.3.6</version>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.27.2</version>
                 <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <buildArgs>
-                        <DEPENDENCY>target/dependency</DEPENDENCY>
-                    </buildArgs>
+                    <verbose>true</verbose>
+                    <images>
+                        <image>
+                            <!-- Replace your-project-name -->
+                            <name>locateipaddress:${project.version}</name>
+                            <build>
+                                <!-- This is the same FROM used in a Dockerfile -->
+                                <from>openjdk:10-jdk</from>
+
+                                <!-- This is the same ENTRYPOINT used in a Dockerfile -->
+                                <entryPoint>
+                                    <exec>
+                                        <arg>java</arg>
+                                        <!-- This extra argument is so Tomcat can start faster due to lack of entropy -->
+                                        <arg>-Djava.security.egd=file:/dev/./urandom</arg>
+                                        <arg>-jar</arg>
+                                        <!-- /maven/ is the default dir that the plugin copies your artifact to -->
+                                        <arg>/maven/${project.artifactId}.${project.packaging}</arg>
+                                    </exec>
+                                </entryPoint>
+
+                                <assembly>
+                                    <!-- This is a predefined assembly.xml that will only copy your final artifact to the Docker image -->
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>docker-build</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
