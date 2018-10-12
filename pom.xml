@@ -156,32 +156,16 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.27.2</version>
                 <configuration>
+                    <showLogs>true</showLogs>
                     <verbose>true</verbose>
                     <images>
                         <image>
-                            <!-- Replace your-project-name -->
-                            <name>locateipaddress:${project.version}</name>
-                            <build>
-                                <!-- This is the same FROM used in a Dockerfile -->
-                                <from>openjdk:10-jdk</from>
-
-                                <!-- This is the same ENTRYPOINT used in a Dockerfile -->
-                                <entryPoint>
-                                    <exec>
-                                        <arg>java</arg>
-                                        <!-- This extra argument is so Tomcat can start faster due to lack of entropy -->
-                                        <arg>-Djava.security.egd=file:/dev/./urandom</arg>
-                                        <arg>-jar</arg>
-                                        <!-- /maven/ is the default dir that the plugin copies your artifact to -->
-                                        <arg>/maven/${project.artifactId}.${project.packaging}</arg>
-                                    </exec>
-                                </entryPoint>
-
-                                <assembly>
-                                    <!-- This is a predefined assembly.xml that will only copy your final artifact to the Docker image -->
-                                    <descriptorRef>artifact</descriptorRef>
-                                </assembly>
-                            </build>
+                            <name>locateipaddress:latest</name>
+                            <external>
+                                <type>compose</type>
+                                <basedir>.</basedir>
+                                <composeFile>docker-compose.yml</composeFile>
+                            </external>
                         </image>
                     </images>
                 </configuration>
@@ -191,28 +175,6 @@
                         <goals>
                             <goal>build</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>${project.artifactId}</artifactId>
-                                    <version>${project.version}</version>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
