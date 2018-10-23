@@ -6,8 +6,8 @@ services:
     build: .
     ports:
       - 8080:8080
-    depends_on:
-      - mongodb
+    networks:
+      - locateipaddress-net
 
   mongodb:
     image: mongo:latest
@@ -15,8 +15,16 @@ services:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
     volumes:
-      - ./data/db:/data/db
+      - mongo:/data/db
     ports:
       - 27017:27017
-    user: michzuerch
+    networks:
+      - locateipaddress-net
     command: mongod --smallfiles --logpath=/dev/null # --quiet
+
+networks:
+  locateipaddress-net:
+    driver: bridge
+
+volumes:
+  mongo:
