@@ -10,7 +10,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" default="false" project-jdk-name="10.0.2" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_10" default="false" project-jdk-name="10" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
+  <component name="jetbrains.communicator.idea.IdProvider" IDEtalkID="6467812CB5C13159A5D8E2F12CE1875F" />
 </project>
