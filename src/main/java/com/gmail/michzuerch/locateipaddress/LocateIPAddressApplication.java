@@ -8,9 +8,6 @@ import org.springframework.core.io.ClassPathResource;
 
 @SpringBootApplication
 public class LocateIPAddressApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(LocateIPAddressApplication.class, args);
-    }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
@@ -20,6 +17,10 @@ public class LocateIPAddressApplication {
         propsConfig.setIgnoreResourceNotFound(true);
         propsConfig.setIgnoreUnresolvablePlaceholders(true);
         return propsConfig;
+    }
+
+    public static void main(final String[] args) {
+        SpringApplication.run(LocateIPAddressApplication.class, args);
     }
 
 }
