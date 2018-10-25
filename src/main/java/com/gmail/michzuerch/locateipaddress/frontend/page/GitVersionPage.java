@@ -1,34 +1,77 @@
 package com.gmail.michzuerch.locateipaddress.frontend.page;
 
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
-import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 
-import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 @Route(value = "GitVersion", layout = MainLayout.class)
 public class GitVersionPage extends VerticalLayout {
     private static final Logger logger = LoggerFactory.getLogger(com.gmail.michzuerch.locateipaddress.frontend.page.GitVersionPage.class);
 
-    @Value("${git.commit.message.short}")
-    private String commitMessage;
+    private Grid<GitProperty> gitPropertyGrid = new Grid<>(GitProperty.class);
 
-    @Value("${git.branch}")
-    private String branch;
+    public GitVersionPage() {
+        gitPropertyGrid.setSizeFull();
+        gitPropertyGrid.setItems(readGitProperties());
+        add(gitPropertyGrid);
+    }
 
-    @Value("${git.commit.id}")
-    private String commitId;
+    private Collection<GitProperty> readGitProperties() {
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("git.properties");
 
-    private Text txtCommitMessage = new Text(commitMessage);
-    private Text txtBranch = new Text(branch);
-    private Text txtCommitId = new Text(commitId);
+        Properties properties = new Properties();
 
-    @PostConstruct
-    private void init() {
-        add(txtCommitMessage, txtBranch, txtCommitId);
+        List<GitProperty> list = new ArrayList<>();
+
+        try {
+            properties.load(inputStream);
+            Set<String> keys = properties.stringPropertyNames();
+
+            Iterator<String> iterator = keys.iterator();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                String value = properties.getProperty(key);
+                list.add(new GitProperty(key, value));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+    }
+
+    private class GitProperty {
+        private String key;
+        private String value;
+
+        public GitProperty(String key, String value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public String getKey() {
+            return key;
+        }
+
+        public void setKey(String key) {
+            this.key = key;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
     }
 }
