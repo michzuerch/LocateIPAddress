@@ -49,7 +49,7 @@ public class GitVersionPage extends VerticalLayout {
 
     }
 
-    private class GitProperty {
+    public class GitProperty {
         private String key;
         private String value;
 
