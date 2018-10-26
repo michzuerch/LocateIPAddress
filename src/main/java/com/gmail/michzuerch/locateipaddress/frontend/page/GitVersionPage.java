@@ -2,6 +2,8 @@ package com.gmail.michzuerch.locateipaddress.frontend.page;
 
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import org.slf4j.Logger;
@@ -16,37 +18,58 @@ public class GitVersionPage extends VerticalLayout {
     private static final Logger logger = LoggerFactory.getLogger(com.gmail.michzuerch.locateipaddress.frontend.page.GitVersionPage.class);
 
     private Grid<GitProperty> gitPropertyGrid = new Grid<>(GitProperty.class);
+    private H3 gitBranch = new H3();
+    private H3 gitBuildTime = new H3();
+    private H3 gitCommitId = new H3();
 
     public GitVersionPage() {
-        gitPropertyGrid.setSizeFull();
+        gitBranch.setText("Branch: " + getBranch());
+        gitBuildTime.setText("Build time: " + getBuildTime());
+        gitCommitId.setText("Commit id: " + getCommitId());
+
+        gitPropertyGrid.setSizeUndefined();
         gitPropertyGrid.setItems(readGitProperties());
-        add(gitPropertyGrid);
+        HorizontalLayout headerLayout = new HorizontalLayout(gitBranch, gitCommitId, gitBuildTime);
+        add(headerLayout, gitPropertyGrid);
     }
 
-    private Collection<GitProperty> readGitProperties() {
+    private Properties getProperties() {
         ClassLoader classLoader = getClass().getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("git.properties");
-
         Properties properties = new Properties();
-
-        List<GitProperty> list = new ArrayList<>();
-
         try {
             properties.load(inputStream);
-            Set<String> keys = properties.stringPropertyNames();
-
-            Iterator<String> iterator = keys.iterator();
-            while (iterator.hasNext()) {
-                String key = iterator.next();
-                String value = properties.getProperty(key);
-                list.add(new GitProperty(key, value));
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return properties;
+    }
 
+    private String getBranch() {
+        return getProperties().getProperty("git.branch");
+    }
+
+    private String getBuildTime() {
+        return getProperties().getProperty("git.build.time");
+    }
+
+    private String getCommitId() {
+        return getProperties().getProperty("git.commit.id");
+    }
+
+    private Collection<GitProperty> readGitProperties() {
+        Properties properties = getProperties();
+        List<GitProperty> list = new ArrayList<>();
+
+        Set<String> keys = properties.stringPropertyNames();
+
+        Iterator<String> iterator = keys.iterator();
+        while (iterator.hasNext()) {
+            String key = iterator.next();
+            String value = properties.getProperty(key);
+            list.add(new GitProperty(key, value));
+        }
         return list;
-
     }
 
     public class GitProperty {
