@@ -17,3 +17,8 @@ Run `mvn clean install spring-boot:run` in the project root directory. After the
 ## Running the project from your IDE
 
 Navigate to the `com.gmail.michzuerch.locateipaddress.LocateIPAddressApplication` class and run it as a Java application.
+
+
+## Running on Docker-Compose
+
+First create a volume `docker volume create --name locateipaddress-mongo-data`

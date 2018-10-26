@@ -1,4 +1,4 @@
-package com.gmail.michzuerch.locateipaddress.frontend.component;
+package com.gmail.michzuerch.locateipaddress.frontend.components;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Tag;

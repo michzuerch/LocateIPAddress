@@ -1,7 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.frontend.location;
 
-import com.gmail.michzuerch.locateipaddress.backend.domain.Location;
-import com.gmail.michzuerch.locateipaddress.backend.repository.mongodb.LocationRepository;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.LocationRepository;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;

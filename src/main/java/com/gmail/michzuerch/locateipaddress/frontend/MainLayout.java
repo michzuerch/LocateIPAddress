@@ -15,79 +15,85 @@
  */
 package com.gmail.michzuerch.locateipaddress.frontend;
 
-import com.flowingcode.addons.applayout.AppLayout;
-import com.flowingcode.addons.applayout.PaperCard;
-import com.flowingcode.addons.applayout.menu.MenuItem;
-import com.gmail.michzuerch.locateipaddress.Greeter;
-import com.gmail.michzuerch.locateipaddress.frontend.block.BlockView;
-import com.gmail.michzuerch.locateipaddress.frontend.page.DatabaseTestPage;
-import com.gmail.michzuerch.locateipaddress.frontend.page.LocationPage;
-import com.gmail.michzuerch.locateipaddress.frontend.page.PushTestPage;
-import com.gmail.michzuerch.locateipaddress.frontend.page.UploadPage;
-import com.vaadin.flow.component.button.Button;
+import com.gmail.michzuerch.locateipaddress.frontend.page.*;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.HtmlImport;
-import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.page.BodySize;
 import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.component.page.Viewport;
-import com.vaadin.flow.dom.Style;
-import com.vaadin.flow.i18n.LocaleChangeEvent;
-import com.vaadin.flow.i18n.LocaleChangeObserver;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.RouterLayout;
-import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.server.InitialPageSettings;
+import com.vaadin.flow.server.VaadinSession;
 import com.vaadin.flow.shared.communication.PushMode;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
-import org.springframework.beans.factory.annotation.Autowired;
+import de.kaesdingeling.hybridmenu.HybridMenu;
+import de.kaesdingeling.hybridmenu.components.*;
+import de.kaesdingeling.hybridmenu.data.MenuConfig;
+import de.kaesdingeling.hybridmenu.design.DesignItem;
 
-import java.util.Locale;
-
-@PageTitle("LocateIPAddress 0.1")
+@PageTitle("LocateIPAddress 1.0.0-SNAPSHOT (GitVersionPage)")
 @Push(PushMode.AUTOMATIC)
 @Theme(Lumo.class)
 @Viewport("width=device-width")
 @BodySize(height = "100vh", width = "100vw")
-@HtmlImport("styles/shared-styles.html")
-public class MainLayout extends VerticalLayout implements RouterLayout {
-    private VerticalLayout container = new VerticalLayout();
+@HtmlImport("shared-styles.html")
+public class MainLayout extends HybridMenu {
+    @Override
+    public boolean init(VaadinSession vaadinSession, UI ui) {
+        withConfig(MenuConfig.get().withDesignItem(DesignItem.getWhiteDesign()));
 
-    public MainLayout() {
-        container.setDefaultHorizontalComponentAlignment(Alignment.CENTER);
-        container.setSizeFull();
+        TopMenu topMenu = getTopMenu();
 
-        this.setPadding(false);
-        this.setSpacing(false);
-        this.setMargin(false);
+        topMenu.add(HMButton.get()
+                .withIcon(VaadinIcon.HOME)
+                .withDescription("Home")
+                .withNavigateTo(HomePage.class));
 
-        AppLayout app =new AppLayout("LocateIPAddress 1.0");
-        app.setMenuItems(
-                new MenuItem("Location", ()->showContent("location")),
-                new MenuItem("Block", ()-> getUI().get().navigate("block")),
-                new MenuItem("Database Test", () -> getUI().get().navigate("DatabaseTest")),
-                new MenuItem("Push Test", () -> getUI().get().navigate("PushTest"))
-        );
-        app.setToolbarIconButtons(new MenuItem("Delete", "delete", ()-> Notification.show("Delete action")),
-                new MenuItem("Search", "search", ()->Notification.show("Search action")),
-                new MenuItem("Close", "close", ()->Notification.show("Close action"))
-        );
+        getNotificationCenter()
+                .setNotiButton(topMenu.add(HMButton.get()
+                        .withDescription("Notifications")));
 
-        this.add(app,container);
-    }
 
-    private void showContent(String content) {
-        container.removeAll();
-        H3 label = new H3();
-        label.setSizeFull();
-        label.setText(content);
-        PaperCard pc = new PaperCard(label,new MenuItem("Delete", ()->Notification.show("Delete action from card")),
-                new MenuItem("Delete", "delete", ()->Notification.show("Delete action from card")));
-        pc.setWidth("100%");
-        container.add(pc);
+        LeftMenu leftMenu = getLeftMenu();
+
+        Image logo = new Image("./frontend/button.svg", "Logo");
+
+        leftMenu.add(HMLabel.get()
+                .withCaption("<b>LocateIPAddress</b> Version 1.0.0")
+                .withIcon(logo));
+
+        getBreadCrumbs().setRoot(leftMenu.add(HMButton.get()
+                .withCaption("Home")
+                .withIcon(VaadinIcon.HOME)
+                .withNavigateTo(HomePage.class)));
+
+        HMSubMenu crud = leftMenu.add(HMSubMenu.get()
+                .withCaption("CRUD")
+                .withIcon(VaadinIcon.COMPILE));
+
+        crud.add(HMButton.get()
+                .withCaption("Blocks")
+                .withIcon(VaadinIcon.ENVELOPE)
+                .withNavigateTo(BlockPage.class));
+
+        crud.add(HMButton.get()
+                .withCaption("Locations")
+                .withIcon(VaadinIcon.LAPTOP)
+                .withNavigateTo(LocationPage.class));
+
+        HMSubMenu tests = leftMenu.add(HMSubMenu.get()
+                .withCaption("Test")
+                .withIcon(VaadinIcon.TEETH));
+
+        tests.add(HMButton.get().withCaption("Upload").withIcon(VaadinIcon.UMBRELLA).withNavigateTo(UploadPage.class));
+
+        tests.add(HMButton.get().withIcon(VaadinIcon.VIMEO).withCaption("Database Test").withNavigateTo(DatabaseTestPage.class));
+        tests.add(HMButton.get().withIcon(VaadinIcon.OFFICE).withCaption("Dialog Test").withNavigateTo(DialogTestPage.class));
+        tests.add(HMButton.get().withIcon(VaadinIcon.CLOCK).withCaption("Push Test").withNavigateTo(PushTestPage.class));
+        tests.add(HMButton.get().withIcon(VaadinIcon.SCREWDRIVER).withCaption("Version").withNavigateTo(GitVersionPage.class));
+
+        return true; // build menu
     }
 }

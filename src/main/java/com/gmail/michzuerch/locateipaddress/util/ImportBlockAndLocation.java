@@ -1,8 +1,8 @@
 package com.gmail.michzuerch.locateipaddress.util;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.gmail.michzuerch.locateipaddress.backend.domain.Block;
-import com.gmail.michzuerch.locateipaddress.backend.domain.Location;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Block;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
 import com.vaadin.flow.component.notification.Notification;
 import org.apache.commons.net.util.SubnetUtils;
 import org.slf4j.Logger;

@@ -1,13 +1,15 @@
-package com.gmail.michzuerch.locateipaddress.backend.domain;
+package com.gmail.michzuerch.locateipaddress.backend.mongodb.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
+@Document(collection = "block")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Block {
     @Id

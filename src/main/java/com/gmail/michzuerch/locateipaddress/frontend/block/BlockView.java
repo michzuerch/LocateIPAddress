@@ -1,7 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.frontend.block;
 
-import com.gmail.michzuerch.locateipaddress.backend.domain.Block;
-import com.gmail.michzuerch.locateipaddress.backend.repository.mongodb.BlockRepository;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Block;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.BlockRepository;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.Icon;

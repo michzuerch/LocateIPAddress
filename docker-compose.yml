@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  spring-boot:
+    restart: always
+    build: .
+    ports:
+      - 8080:8080
+    networks:
+      - locateipaddress-net
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - mongo:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - locateipaddress-net
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+
+networks:
+  locateipaddress-net:
+    driver: bridge
+
+volumes:
+  mongo:

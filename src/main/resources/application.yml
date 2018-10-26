@@ -1,0 +1,34 @@
+info:
+  app:
+    name: LocateIPAddress
+    description: Geolocation of IP-Addresses
+    version: 1.0.0-SNAPSHOT
+server:
+  servlet:
+    session:
+      timeout: 60m
+vaadin:
+  servlet:
+    heartbeatInterfall: 10
+    closeIdleSession: true
+    productionMode: false
+    urlMapping: /*
+spring:
+  data:
+    mongodb:
+      #      uri: mongodb://mongodb:27000/locateipaddress
+      uri: mongodb://localhost/locateipaddress
+    rest:
+      basepath: /api
+  h2:
+    console:
+      enabled: true
+logging:
+  level:
+    org.springframework: ERROR
+    org.springframework.web: ERROR
+    com.gmail.michzuerch: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: locateipaddress.log

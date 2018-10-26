@@ -1,6 +1,6 @@
-package com.gmail.michzuerch.locateipaddress.backend.repository.mongodb;
+package com.gmail.michzuerch.locateipaddress.backend.mongodb.repository;
 
-import com.gmail.michzuerch.locateipaddress.backend.domain.Block;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Block;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

@@ -1,9 +1,9 @@
 package com.gmail.michzuerch.locateipaddress.frontend.page;
 
-import com.gmail.michzuerch.locateipaddress.backend.domain.Block;
-import com.gmail.michzuerch.locateipaddress.backend.domain.Location;
-import com.gmail.michzuerch.locateipaddress.backend.repository.mongodb.BlockRepository;
-import com.gmail.michzuerch.locateipaddress.backend.repository.mongodb.LocationRepository;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Block;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.BlockRepository;
+import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.LocationRepository;
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
 import com.gmail.michzuerch.locateipaddress.util.ImportBlockAndLocation;
 import com.vaadin.flow.component.AttachEvent;
@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalTime;
 import java.util.List;
 
 @Route(value = "Upload", layout = MainLayout.class)
@@ -123,7 +124,7 @@ public class UploadPage extends VerticalLayout {
                     //log.debug(LocalTime.now().format(dateTimeFormatter));
                     ui.access(() -> {
                         view.progressBar.setValue(count);
-                        view.status.setText(String.valueOf(count));
+                        view.status.setText(LocalTime.now().toString());
                     });
                 }
 
