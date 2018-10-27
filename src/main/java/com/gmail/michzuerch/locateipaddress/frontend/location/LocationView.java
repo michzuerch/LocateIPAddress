@@ -59,12 +59,7 @@ public class LocationView extends VerticalLayout {
         grid.addColumn(Location::getLatitude).setHeader("Latitude");
         grid.addColumn(Location::getLongitude).setHeader("Longitude");
 
-        HorizontalLayout filtering = new HorizontalLayout(filterText, clearFilterTextBtn);
-        HorizontalLayout toolbar = new HorizontalLayout(filtering, addCustomerBtn);
-
-        HorizontalLayout main = new HorizontalLayout(grid, form);
-        main.setAlignItems(Alignment.START);
-        main.setSizeFull();
+        HorizontalLayout toolbar = new HorizontalLayout(filterText, clearFilterTextBtn, addCustomerBtn);
 
         addCustomerBtn.addClickListener(e -> {
             grid.asSingleSelect().clear();
@@ -74,7 +69,7 @@ public class LocationView extends VerticalLayout {
             form.setLocation(event.getValue());
         });
 
-        add(toolbar, main);
+        add(toolbar, grid);
         setHeight("100vh");
         updateList();
     }

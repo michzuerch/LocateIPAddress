@@ -7,6 +7,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,7 @@ public class LocationFormDialog extends Dialog {
 
     private void init() {
         logger.debug("init");
+        geonameId.setValueChangeMode(ValueChangeMode.EAGER);
         layout.add(geonameId, localeCode, continentCode, continentName, countryIsoCode, countryName, subdivision1isoCode,
                 subdivision1name, subdivision2isoCode, subdivision2name, cityName, metroCode, timeZone, isInEuropeanUnion,
                 country, city, postalcode, longitude, latitude, cancel, save);
