@@ -20,11 +20,26 @@
         <url>https://michzuerch.github.io/</url>
     </organization>
     <scm>
-        <url>https://github.com/michzuerch/locateipaddress</url>
-        <connection>scm:git:git://github.com/michzuerch/locateipaddress.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:michzuerch/locateipaddress.git</developerConnection>
+        <url>https://github.com/michzuerch/LocateIPAddress</url>
+        <connection>scm:git:git://github.com/michzuerch/LocateIPAddress.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:michzuerch/LocateIPAddress.git</developerConnection>
         <tag>master</tag>
     </scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/michzuerch/LocateIPAddress/issues</url>
+    </issueManagement>
+    <developers>
+        <developer>
+            <name>Michael Zürcher</name>
+            <email>michzuerch@gmail.com</email>
+            <organization>Michael Zürcher</organization>
+            <roles>
+                <role>Developer</role>
+                <role>Contributor</role>
+            </roles>
+        </developer>
+    </developers>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
