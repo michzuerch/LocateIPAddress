@@ -16,14 +16,13 @@
         <vaadin.version>11.0.1</vaadin.version>
     </properties>
     <organization>
-        <name>Frank W. Rahn</name>
-        <url>https://www.frank-rahn.de/</url>
+        <name>Michael Zürcher</name>
+        <url>https://michzuerch.github.io/</url>
     </organization>
-
     <scm>
         <url>https://github.com/michzuerch/locateipaddress</url>
-        <connection>scm:git:git://github.com/frank-rahn/microservices.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:frank-rahn/microservices.git</developerConnection>
+        <connection>scm:git:git://github.com/michzuerch/locateipaddress.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:michzuerch/locateipaddress.git</developerConnection>
         <tag>master</tag>
     </scm>
     <parent>
