@@ -2,12 +2,12 @@ package com.gmail.michzuerch.locateipaddress.frontend.formdialog;
 
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.LocationRepository;
+import com.gmail.michzuerch.locateipaddress.frontend.page.LocationPage;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
-import com.vaadin.flow.data.value.ValueChangeMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +16,11 @@ public class LocationFormDialog extends Dialog {
     private static final Logger logger = LoggerFactory.getLogger(LocationFormDialog.class);
 
     @Autowired
-    LocationRepository locationRepository;
-    //Binder<Location> binder = new Binder<>();
+    LocationRepository repository;
+
     BeanValidationBinder<Location> binder = new BeanValidationBinder<>(Location.class);
     private Location bean = new Location();
+    private LocationPage page;
     private FormLayout layout = new FormLayout();
     private TextField geonameId = new TextField("Geoname Id");
     private TextField localeCode = new TextField("Locale Code");
@@ -40,10 +41,12 @@ public class LocationFormDialog extends Dialog {
     private TextField postalcode = new TextField("Postalcode");
     private TextField latitude = new TextField("Latitude");
     private TextField longitude = new TextField("Longitude");
-    private Button save = new Button("Speichern");
-    private Button cancel = new Button("Abbrechen");
+    private Button save = new Button("Save");
+    private Button delete = new Button("Delete");
+    private Button cancel = new Button("Cancel");
 
-    public LocationFormDialog() {
+    public LocationFormDialog(LocationPage page) {
+        this.page = page;
         init();
     }
 
@@ -53,15 +56,30 @@ public class LocationFormDialog extends Dialog {
 
     private void init() {
         logger.debug("init");
-        geonameId.setValueChangeMode(ValueChangeMode.EAGER);
+        binder.bindInstanceFields(this);
+        save.getElement().setAttribute("theme", "primary");
+
+        save.addClickListener(e -> this.save());
+        delete.addClickListener(e -> this.delete());
+        cancel.addClickListener(e -> this.close());
+
+
         layout.add(geonameId, localeCode, continentCode, continentName, countryIsoCode, countryName, subdivision1isoCode,
                 subdivision1name, subdivision2isoCode, subdivision2name, cityName, metroCode, timeZone, isInEuropeanUnion,
-                country, city, postalcode, longitude, latitude, cancel, save);
+                country, city, postalcode, longitude, latitude, cancel, delete, save);
 
         add(layout);
         setCloseOnEsc(true);
-        setCloseOnOutsideClick(false);
+        setCloseOnOutsideClick(true);
     }
 
+    private void delete() {
+        repository.delete(bean);
+        page.updateList();
+    }
 
+    private void save() {
+        repository.save(bean);
+        page.updateList();
+    }
 }

@@ -15,6 +15,17 @@
         <docker.image.prefix>michzuerch</docker.image.prefix>
         <vaadin.version>11.0.1</vaadin.version>
     </properties>
+    <organization>
+        <name>Frank W. Rahn</name>
+        <url>https://www.frank-rahn.de/</url>
+    </organization>
+
+    <scm>
+        <url>https://github.com/michzuerch/locateipaddress</url>
+        <connection>scm:git:git://github.com/frank-rahn/microservices.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:frank-rahn/microservices.git</developerConnection>
+        <tag>master</tag>
+    </scm>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

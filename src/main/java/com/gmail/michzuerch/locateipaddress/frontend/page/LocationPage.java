@@ -12,6 +12,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.spring.annotation.UIScope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +20,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 
 @Route(value = "Location", layout = MainLayout.class)
+@UIScope
 public class LocationPage extends VerticalLayout {
     private static final Logger logger = LoggerFactory.getLogger(LocationPage.class);
 
     @Autowired
-    LocationRepository locationRepository;
+    private LocationRepository locationRepository;
 
-    Grid<Location> grid = new Grid<Location>(Location.class);
+    private Grid<Location> grid = new Grid<Location>(Location.class);
     private Button btnAdd = new Button("Add");
     private TextField filterText = new TextField();
     private Button clearFilterTextBtn = new Button(new Icon(VaadinIcon.CLOSE_CIRCLE));
-    LocationFormDialog formDialog = new LocationFormDialog();
+    private LocationFormDialog dialog;
 
     @PostConstruct
     private void init() {
@@ -44,9 +46,8 @@ public class LocationPage extends VerticalLayout {
 
         HorizontalLayout toolbar = new HorizontalLayout(filterText, clearFilterTextBtn, btnAdd);
         btnAdd.addClickListener(event -> {
-
-            formDialog.open();
-
+            dialog = new LocationFormDialog(this);
+            dialog.open();
         });
         add(toolbar, grid);
     }
@@ -54,8 +55,11 @@ public class LocationPage extends VerticalLayout {
     public void updateList() {
         if (filterText.isEmpty()) {
             grid.setItems(locationRepository.findAll());
+            logger.debug("findAll()");
         } else {
             grid.setItems(locationRepository.findByCityIgnoreCase(filterText.getValue() + "%"));
+            logger.debug("findByCityIgnoreCase(" + filterText.getValue() + "):" +
+                    locationRepository.findByCityIgnoreCase(filterText.getValue() + "%").size());
         }
     }
 }
