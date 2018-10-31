@@ -1,8 +1,8 @@
 info:
   app:
-    name: LocateIPAddress
-    description: Geolocation of IP-Addresses
-    version: 1.0.0-SNAPSHOT
+    name: @project.artifactId@
+    description: @project.description@
+    version: @project.version@
 server:
   servlet:
     session:

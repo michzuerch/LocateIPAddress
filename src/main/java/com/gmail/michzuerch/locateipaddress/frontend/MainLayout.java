@@ -33,7 +33,7 @@ import de.kaesdingeling.hybridmenu.components.*;
 import de.kaesdingeling.hybridmenu.data.MenuConfig;
 import de.kaesdingeling.hybridmenu.design.DesignItem;
 
-@PageTitle("LocateIPAddress 1.0.0-SNAPSHOT (GitVersionPage)")
+@PageTitle("LocateIPAddress 1.0.0-SNAPSHOT")
 @Push(PushMode.AUTOMATIC)
 @Theme(Lumo.class)
 @Viewport("width=device-width")

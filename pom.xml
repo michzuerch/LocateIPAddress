@@ -2,9 +2,10 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.gmail.michzuerch</groupId>
+    <groupId>com.gmail.michzuerch.locateipaddress</groupId>
     <artifactId>LocateIPAddress</artifactId>
     <name>Locate IP-Adresses</name>
+    <description>Locate IP-Addresses</description>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
@@ -72,6 +73,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
