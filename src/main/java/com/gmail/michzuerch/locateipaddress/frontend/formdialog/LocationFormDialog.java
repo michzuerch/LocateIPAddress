@@ -7,7 +7,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.Binder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class LocationFormDialog extends Dialog {
     @Autowired
     LocationRepository repository;
 
-    BeanValidationBinder<Location> binder = new BeanValidationBinder<>(Location.class);
+    Binder<Location> binder = new Binder<>(Location.class);
     private Location bean = new Location();
     private LocationPage page;
     private FormLayout layout = new FormLayout();
@@ -50,7 +50,7 @@ public class LocationFormDialog extends Dialog {
         init();
     }
 
-    private BeanValidationBinder<Location> getBinder() {
+    private Binder<Location> getBinder() {
         return binder;
     }
 
@@ -81,5 +81,13 @@ public class LocationFormDialog extends Dialog {
     private void save() {
         repository.save(bean);
         page.updateList();
+    }
+
+    public Location getBean() {
+        return bean;
+    }
+
+    public void setBean(Location bean) {
+        this.bean = bean;
     }
 }

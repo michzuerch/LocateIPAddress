@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
-@Route(value = "GitVersion", layout = MainLayout.class)
-public class GitVersionPage extends VerticalLayout {
+@Route(value = "login", layout = MainLayout.class)
+public class LoginPage extends VerticalLayout {
     private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     private Grid<GitProperty> gitPropertyGrid = new Grid<>(GitProperty.class);
@@ -22,7 +22,7 @@ public class GitVersionPage extends VerticalLayout {
     private H3 gitBuildTime = new H3();
     private H3 gitCommitId = new H3();
 
-    public GitVersionPage() {
+    public LoginPage() {
         gitBranch.setText("Branch: " + getBranch());
         gitBuildTime.setText("Build time: " + getBuildTime());
         gitCommitId.setText("Commit id: " + getCommitId());

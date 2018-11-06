@@ -49,6 +49,13 @@ public class LocationPage extends VerticalLayout {
             dialog = new LocationFormDialog(this);
             dialog.open();
         });
+
+        grid.addSelectionListener(event -> {
+            dialog = new LocationFormDialog(this);
+            dialog.setBean(grid.getSelectedItems().iterator().next());
+            dialog.open();
+        });
+
         add(toolbar, grid);
     }
 

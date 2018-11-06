@@ -92,7 +92,7 @@ public class MainLayout extends HybridMenu {
         tests.add(HMButton.get().withIcon(VaadinIcon.VIMEO).withCaption("Database Test").withNavigateTo(DatabaseTestPage.class));
         tests.add(HMButton.get().withIcon(VaadinIcon.OFFICE).withCaption("Dialog Test").withNavigateTo(DialogTestPage.class));
         tests.add(HMButton.get().withIcon(VaadinIcon.CLOCK).withCaption("Push Test").withNavigateTo(PushTestPage.class));
-        tests.add(HMButton.get().withIcon(VaadinIcon.SCREWDRIVER).withCaption("Version").withNavigateTo(GitVersionPage.class));
+        tests.add(HMButton.get().withIcon(VaadinIcon.SCREWDRIVER).withCaption("Version").withNavigateTo(LoginPage.class));
 
         return true; // build menu
     }
