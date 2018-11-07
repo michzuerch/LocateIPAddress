@@ -20,14 +20,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("michzuerch").password(passwordEncoder().encode("lx0lc33a"))
-                .authorities("ROLE_USER");
+                .withUser("michzuerch")
+                .password(passwordEncoder().encode("lx0lc33a"))
+                .roles("USER")
+                .and()
+                .withUser("admin")
+                .password(passwordEncoder().encode("admin"))
+                .accountExpired(true)
+                .accountLocked(true)
+                .authorities("WRITE_PRIVILEGES", "READ_PRIVILEGES")
+                .roles("ADMIN");
+
+
+
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/VAADIN/**", "/HEARTBEAT/**", "/UIDL/**", "/resources/**", "/login", "/login**", "/login/**").permitAll()
                 .antMatchers("/securityNone").permitAll()
                 .anyRequest().authenticated()
                 .and()

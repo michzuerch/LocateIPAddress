@@ -1,22 +1,19 @@
 package com.gmail.michzuerch.locateipaddress.frontend.page;
 
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
+import com.gmail.michzuerch.locateipaddress.util.HasLogger;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
 @Route(value = "GitVersion", layout = MainLayout.class)
-public class GitVersionPage extends VerticalLayout {
-    private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
-
+public class GitVersionPage extends VerticalLayout implements HasLogger {
     private Grid<GitProperty> gitPropertyGrid = new Grid<>(GitProperty.class);
     private H3 gitBranch = new H3();
     private H3 gitBuildTime = new H3();
