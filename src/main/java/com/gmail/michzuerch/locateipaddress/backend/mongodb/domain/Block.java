@@ -2,6 +2,9 @@ package com.gmail.michzuerch.locateipaddress.backend.mongodb.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -11,6 +14,9 @@ import java.math.BigDecimal;
 
 @Document(collection = "block")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Block {
     @Id
     private ObjectId id;
@@ -29,107 +35,4 @@ public class Block {
     @Indexed
     private BigDecimal endip;
 
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
-    }
-
-    public String getNetwork() {
-        return network;
-    }
-
-    public void setNetwork(String network) {
-        this.network = network;
-    }
-
-    public String getGeonameId() {
-        return geonameId;
-    }
-
-    public void setGeonameId(String geonameId) {
-        this.geonameId = geonameId;
-    }
-
-    public String getRegisteredCountryGeonameId() {
-        return registeredCountryGeonameId;
-    }
-
-    public void setRegisteredCountryGeonameId(String registeredCountryGeonameId) {
-        this.registeredCountryGeonameId = registeredCountryGeonameId;
-    }
-
-    public String getRepresentedCountryGeonameId() {
-        return representedCountryGeonameId;
-    }
-
-    public void setRepresentedCountryGeonameId(String representedCountryGeonameId) {
-        this.representedCountryGeonameId = representedCountryGeonameId;
-    }
-
-    public String getIsAnonymousProxy() {
-        return isAnonymousProxy;
-    }
-
-    public void setIsAnonymousProxy(String isAnonymousProxy) {
-        this.isAnonymousProxy = isAnonymousProxy;
-    }
-
-    public String getIsSatelliteProvider() {
-        return isSatelliteProvider;
-    }
-
-    public void setIsSatelliteProvider(String isSatelliteProvider) {
-        this.isSatelliteProvider = isSatelliteProvider;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getAccuracyRadius() {
-        return accuracyRadius;
-    }
-
-    public void setAccuracyRadius(String accuracyRadius) {
-        this.accuracyRadius = accuracyRadius;
-    }
-
-    public BigDecimal getStartip() {
-        return startip;
-    }
-
-    public void setStartip(BigDecimal startip) {
-        this.startip = startip;
-    }
-
-    public BigDecimal getEndip() {
-        return endip;
-    }
-
-    public void setEndip(BigDecimal endip) {
-        this.endip = endip;
-    }
 }
