@@ -64,9 +64,9 @@ public class LocationPage extends VerticalLayout {
             grid.setItems(locationRepository.findAll());
             logger.debug("findAll()");
         } else {
-            grid.setItems(locationRepository.findByCityIgnoreCase(filterText.getValue() + "%"));
+            grid.setItems(locationRepository.findByCityLikeIgnoreCase(filterText.getValue() + "%"));
             logger.debug("findByCityIgnoreCase(" + filterText.getValue() + "):" +
-                    locationRepository.findByCityIgnoreCase(filterText.getValue() + "%").size());
+                    locationRepository.findByCityLikeIgnoreCase(filterText.getValue() + "%").size());
         }
     }
 }

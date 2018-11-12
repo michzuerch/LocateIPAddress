@@ -78,7 +78,7 @@ public class LocationView extends VerticalLayout {
         if (filterText.isEmpty()) {
             grid.setItems(locationRepository.findAll());
         } else {
-            grid.setItems(locationRepository.findByCityIgnoreCase(filterText.getValue() + "%"));
+            grid.setItems(locationRepository.findByCityLikeIgnoreCase(filterText.getValue() + "%"));
         }
     }
 }

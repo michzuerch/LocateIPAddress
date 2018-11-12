@@ -13,5 +13,5 @@ public interface LocationRepository extends MongoRepository<Location, ObjectId> 
     Collection<Location> findByCityLike(String city);
 
     //@todo Finder not working on LocationPage
-    Collection<Location> findByCityIgnoreCase(String city);
+    Collection<Location> findByCityLikeIgnoreCase(String city);
 }

@@ -5,6 +5,7 @@ import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.BlockRepository;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.LocationRepository;
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
+import com.gmail.michzuerch.locateipaddress.util.HasLogger;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
@@ -12,27 +13,22 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;
 import de.kaesdingeling.hybridmenu.components.NotificationCenter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 
 @Route(value = "DatabaseTest", layout = MainLayout.class)
-public class DatabaseTestPage extends VerticalLayout {
-    private static final Logger logger = LoggerFactory.getLogger(DatabaseTestPage.class);
-
+public class DatabaseTestPage extends VerticalLayout implements HasLogger {
     private Button btnCreateTestdata;
     private Button btnReadTestdata;
     private Button btnRemoveTestdata;
     private Button btnRelations;
+    private final LocationRepository locationRepository;
+    private final BlockRepository blockRepository;
+    private Button btnLogger;
 
-    private LocationRepository locationRepository;
-    private BlockRepository blockRepository;
 
-
-    public DatabaseTestPage(@Autowired LocationRepository locationRepository, @Autowired BlockRepository blockRepository) {
+    public DatabaseTestPage(LocationRepository locationRepository, BlockRepository blockRepository) {
         this.locationRepository = locationRepository;
         this.blockRepository = blockRepository;
     }
@@ -120,15 +116,18 @@ public class DatabaseTestPage extends VerticalLayout {
     @PostConstruct
     private void init() {
         btnCreateTestdata = new Button("Testdaten erstellen", event -> createTestdata());
+
         btnReadTestdata = new Button("Testdaten lesen", event -> {
             Notification.show("Anzahl Locations: " + locationRepository.findAll().size(), 3000, Notification.Position.MIDDLE);
             Notification.show("Anzahl Blocks: " + blockRepository.findAll().size(), 3000, Notification.Position.MIDDLE);
         });
+
         btnRemoveTestdata = new Button("Testdaten löschen", event -> {
             blockRepository.deleteAll();
             locationRepository.deleteAll();
             Notification.show("Testdaten gelöscht", 1000, Notification.Position.MIDDLE);
         });
+
         btnRelations = new Button("Relations", event -> {
             NotificationCenter notificationCenter = VaadinSession.getCurrent().getAttribute(NotificationCenter.class);
 
@@ -146,6 +145,12 @@ public class DatabaseTestPage extends VerticalLayout {
             });
         });
 
-        add(btnCreateTestdata, btnReadTestdata, btnRelations, btnRemoveTestdata);
+        btnLogger = new Button("Test Logger", event -> {
+            getLogger().debug("Debug");
+            getLogger().error("Error");
+            getLogger().info("Info");
+        });
+
+        add(btnCreateTestdata, btnReadTestdata, btnRelations, btnRemoveTestdata, btnLogger);
     }
 }
