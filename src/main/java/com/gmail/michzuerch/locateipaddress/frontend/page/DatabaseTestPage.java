@@ -34,72 +34,73 @@ public class DatabaseTestPage extends VerticalLayout implements HasLogger {
     }
 
     protected void createTestdata() {
-        Location location1 = new Location();
-        location1.setCity("Singen");
-        location1.setCityName("Singen");
-        location1.setContinentCode("EU");
-        location1.setContinentName("Europa");
-        location1.setCountry("Estonia");
-        location1.setCountryIsoCode("EE");
-        location1.setContinentName("Estonia");
-        location1.setGeonameId("GeonameID");
-        location1.setIsInEuropeanUnion("Y");
-        location1.setLatitude(new BigDecimal(34));
-        location1.setLongitude(new BigDecimal(5234));
-        location1.setMetroCode("mc");
-        location1.setPostalcode("2342");
-        location1.setSubdivision1isoCode("sd1iso");
-        location1.setSubdivision1name("sd1name");
-        location1.setSubdivision2isoCode("sd2iso");
-        location1.setSubdivision2name("sd2name");
-        location1.setTimeZone("UTZ");
+        Location location1 = Location.builder()
+                .city("Singen")
+                .cityName("Singen")
+                .continentCode("EU")
+                .continentName("Europe")
+                .country("Estonia")
+                .countryIsoCode("EE")
+                .geonameId("GeonameId")
+                .isInEuropeanUnion("Y")
+                .latitude(new BigDecimal(345))
+                .longitude(new BigDecimal(33452))
+                .metroCode("MC")
+                .postalcode("3423")
+                .subdivision1isoCode("sd1iso")
+                .subdivision1name("sd1name")
+                .subdivision2isoCode("sd2iso")
+                .subdivision2name("sd2name")
+                .timeZone("UTZ").build();
 
 
-        Location location2 = new Location();
-        location2.setCity("Singen2");
-        location2.setCityName("Singen2");
-        location2.setContinentCode("EU");
-        location2.setContinentName("Europa");
-        location2.setCountry("Estonia");
-        location2.setCountryIsoCode("EE");
-        location2.setContinentName("Estonia");
-        location2.setGeonameId("GeonameID");
-        location2.setIsInEuropeanUnion("Y");
-        location2.setLatitude(new BigDecimal(34));
-        location2.setLongitude(new BigDecimal(5234));
-        location2.setMetroCode("mc");
-        location2.setPostalcode("2342");
-        location2.setSubdivision1isoCode("sd1iso");
-        location2.setSubdivision1name("sd1name");
-        location2.setSubdivision2isoCode("sd2iso");
-        location2.setSubdivision2name("sd2name");
-        location2.setTimeZone("UTZ2");
+        Location location2 = Location.builder()
+                .city("München")
+                .cityName("München")
+                .continentCode("EU")
+                .continentName("Europe")
+                .country("Estonia")
+                .countryIsoCode("EE")
+                .geonameId("GeonameId")
+                .isInEuropeanUnion("Y")
+                .latitude(new BigDecimal(345))
+                .longitude(new BigDecimal(33452))
+                .metroCode("MC")
+                .postalcode("3423")
+                .subdivision1isoCode("sd1iso")
+                .subdivision1name("sd1name")
+                .subdivision2isoCode("sd2iso")
+                .subdivision2name("sd2name")
+                .timeZone("UTZ").build();
 
-        Block block1 = new Block();
-        block1.setStartip(new BigDecimal(230));
-        block1.setEndip(new BigDecimal(3452));
-        block1.setAccuracyRadius("accuracy");
-        block1.setGeonameId("GeonameId");
-        block1.setIsAnonymousProxy("N");
-        block1.setIsSatelliteProvider("N");
-        block1.setLatitude("latitude");
-        block1.setLongitude("longitude");
-        block1.setNetwork("network");
-        block1.setPostalCode("postalcode");
-        block1.setRegisteredCountryGeonameId("registreredCountry");
 
-        Block block2 = new Block();
-        block2.setAccuracyRadius("accuracy");
-        block2.setGeonameId("GeonameId");
-        block2.setStartip(new BigDecimal(230));
-        block2.setEndip(new BigDecimal(3452));
-        block2.setIsAnonymousProxy("N");
-        block2.setIsSatelliteProvider("N");
-        block2.setLatitude("latitude");
-        block2.setLatitude("longitude");
-        block2.setNetwork("network");
-        block2.setPostalCode("postalcode");
-        block2.setRegisteredCountryGeonameId("registreredCountry");
+        Block block1 = Block.builder()
+                .startip(new BigDecimal(234))
+                .endip(new BigDecimal(23))
+                .accuracyRadius("Accuracy")
+                .geonameId("GeonameId")
+                .isAnonymousProxy("N")
+                .isSatelliteProvider("N")
+                .latitude("lat")
+                .longitude("long")
+                .network("network")
+                .postalCode("23423")
+                .registeredCountryGeonameId("rceid")
+                .representedCountryGeonameId("repcgid").build();
+
+        Block block2 = Block.builder()
+                .startip(new BigDecimal(234))
+                .endip(new BigDecimal(23))
+                .accuracyRadius("Accuracy")
+                .geonameId("GeonameId")
+                .isAnonymousProxy("N")
+                .isSatelliteProvider("N")
+                .latitude("lat")
+                .longitude("long")
+                .network("network")
+                .postalCode("23423")
+                .registeredCountryGeonameId("rceid")
+                .representedCountryGeonameId("repcgid").build();
 
         block1 = blockRepository.save(block1);
         block2 = blockRepository.save(block2);
