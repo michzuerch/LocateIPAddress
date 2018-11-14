@@ -24,6 +24,9 @@ spring:
   h2:
     console:
       enabled: true
+  security:
+    user:
+      roles: USER, ADMIN
 logging:
   level:
     org.springframework: ERROR

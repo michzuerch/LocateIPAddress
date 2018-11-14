@@ -5,6 +5,7 @@ import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.BlockRepo
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
 import com.gmail.michzuerch.locateipaddress.frontend.formdialog.BlockFormDialog;
 import com.gmail.michzuerch.locateipaddress.util.HasLogger;
+import com.gmail.michzuerch.locateipaddress.util.HasNotifications;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.Icon;
@@ -12,6 +13,7 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.renderer.NativeButtonRenderer;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.spring.annotation.UIScope;
 import org.bson.types.ObjectId;
@@ -22,7 +24,7 @@ import java.math.BigDecimal;
 
 @Route(value = "Block", layout = MainLayout.class)
 @UIScope
-public class BlockPage extends VerticalLayout implements HasLogger {
+public class BlockPage extends VerticalLayout implements HasLogger, HasNotifications {
 
     @Autowired
     private BlockRepository blockRepository;
@@ -36,6 +38,10 @@ public class BlockPage extends VerticalLayout implements HasLogger {
     @PostConstruct
     private void init() {
         grid.setItems(blockRepository.findAll());
+        grid.addColumn(new NativeButtonRenderer<>("Remove item", clickedItem -> {
+            showNotification("Remove called");
+        }));
+
         filterText.setPlaceholder("Find by postalcode");
 
         filterText.addValueChangeListener(event -> updateList());
