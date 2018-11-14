@@ -4,8 +4,10 @@ import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Block;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.BlockRepository;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.LocationRepository;
+import com.gmail.michzuerch.locateipaddress.config.LocateIPAddressConfiguration;
 import com.gmail.michzuerch.locateipaddress.frontend.MainLayout;
 import com.gmail.michzuerch.locateipaddress.util.HasLogger;
+import com.gmail.michzuerch.locateipaddress.util.HasNotifications;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
@@ -18,19 +20,24 @@ import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 
 @Route(value = "DatabaseTest", layout = MainLayout.class)
-public class DatabaseTestPage extends VerticalLayout implements HasLogger {
+public class DatabaseTestPage extends VerticalLayout implements HasLogger, HasNotifications {
     private Button btnCreateTestdata;
     private Button btnReadTestdata;
     private Button btnRemoveTestdata;
     private Button btnRelations;
+    private final LocateIPAddressConfiguration locateIPAddressConfiguration;
+
+
     private final LocationRepository locationRepository;
     private final BlockRepository blockRepository;
     private Button btnLogger;
 
 
-    public DatabaseTestPage(LocationRepository locationRepository, BlockRepository blockRepository) {
+    public DatabaseTestPage(LocationRepository locationRepository, BlockRepository blockRepository,
+                            LocateIPAddressConfiguration locateIPAddressConfiguration) {
         this.locationRepository = locationRepository;
         this.blockRepository = blockRepository;
+        this.locateIPAddressConfiguration = locateIPAddressConfiguration;
     }
 
     protected void createTestdata() {
@@ -110,8 +117,6 @@ public class DatabaseTestPage extends VerticalLayout implements HasLogger {
 
         location1 = locationRepository.save(location1);
         location2 = locationRepository.save(location2);
-
-
     }
 
     @PostConstruct
@@ -140,10 +145,12 @@ public class DatabaseTestPage extends VerticalLayout implements HasLogger {
             notificationCenter.add(notification, true);
 
 
-            locationRepository.findAll().stream().forEach(location -> {
+            locationRepository.findAll().forEach(location -> {
                 Notification.show("Block:" + location);
                 //Notification.show("Blocks: "+location.getBlocks().size());
             });
+
+            showNotification(locateIPAddressConfiguration.getProp());
         });
 
         btnLogger = new Button("Test Logger", event -> {

@@ -3,10 +3,12 @@ package com.gmail.michzuerch.locateipaddress.frontend.formdialog;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.domain.Location;
 import com.gmail.michzuerch.locateipaddress.backend.mongodb.repository.LocationRepository;
 import com.gmail.michzuerch.locateipaddress.frontend.page.LocationPage;
+import com.storedobject.vaadin.BigDecimalField;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +20,7 @@ public class LocationFormDialog extends Dialog {
     @Autowired
     LocationRepository repository;
 
-    Binder<Location> binder = new Binder<>(Location.class);
+    BeanValidationBinder<Location> binder = new BeanValidationBinder<>(Location.class);
     private Location bean = new Location();
     private LocationPage page;
     private FormLayout layout = new FormLayout();
@@ -39,8 +41,8 @@ public class LocationFormDialog extends Dialog {
     private TextField country = new TextField("Country");
     private TextField city = new TextField("City");
     private TextField postalcode = new TextField("Postalcode");
-    private TextField latitude = new TextField("Latitude");
-    private TextField longitude = new TextField("Longitude");
+    private BigDecimalField latitude = new BigDecimalField("Latitude");
+    private BigDecimalField longitude = new BigDecimalField("Longitude");
     private Button save = new Button("Save");
     private Button delete = new Button("Delete");
     private Button cancel = new Button("Cancel");

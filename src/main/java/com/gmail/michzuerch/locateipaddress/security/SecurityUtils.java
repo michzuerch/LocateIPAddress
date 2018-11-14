@@ -1,4 +1,4 @@
-package com.gmail.michzuerch.locateipaddress.config;
+package com.gmail.michzuerch.locateipaddress.security;
 
 import com.vaadin.flow.server.ServletHelper.RequestType;
 import com.vaadin.flow.shared.ApplicationConstants;

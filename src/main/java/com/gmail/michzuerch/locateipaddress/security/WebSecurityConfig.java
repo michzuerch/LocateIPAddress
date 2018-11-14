@@ -1,4 +1,4 @@
-package com.gmail.michzuerch.locateipaddress.config;
+package com.gmail.michzuerch.locateipaddress.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

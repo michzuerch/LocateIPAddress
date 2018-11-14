@@ -1,4 +1,4 @@
-package com.gmail.michzuerch.locateipaddress.config;
+package com.gmail.michzuerch.locateipaddress.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
