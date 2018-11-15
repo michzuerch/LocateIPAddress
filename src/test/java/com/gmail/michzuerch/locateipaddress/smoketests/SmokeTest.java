@@ -1,15 +1,16 @@
 package com.gmail.michzuerch.locateipaddress.smoketests;
 
 import com.gmail.michzuerch.locateipaddress.backend.rest.SecurityTestRest;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class SmokeTest {
 
@@ -17,7 +18,9 @@ public class SmokeTest {
     private SecurityTestRest controller;
 
     @Test
+    @DisplayName("Example Service should work!")
     public void contexLoads() throws Exception {
-        assertThat(controller).isNotNull();
+
+        assertFalse(controller == null);
     }
 }

@@ -11,5 +11,7 @@ import java.util.Collection;
 public interface BlockRepository extends MongoRepository<Block, ObjectId> {
     Collection<Block> findByPostalCodeContainingIgnoreCase(String postalCode);
 
-    Block findByGeonameId(String geonameId);
+    Collection<Block> findByGeonameId(String geonameId);
+
+    //Block findByGeonameId(String geonameId);
 }
