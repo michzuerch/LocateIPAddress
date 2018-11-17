@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SmokeTest {
+public class SmokeIT {
 
     @Autowired
     private SecurityTestRest controller;
