@@ -21,6 +21,7 @@ import java.math.BigDecimal;
 
 @Route(value = "DatabaseTest", layout = MainLayout.class)
 public class DatabaseTestPage extends VerticalLayout implements HasLogger, HasNotifications {
+    private static final long serialVersionUID = -5144428334716315103L;
     private Button btnCreateTestdata;
     private Button btnReadTestdata;
     private Button btnRemoveTestdata;
