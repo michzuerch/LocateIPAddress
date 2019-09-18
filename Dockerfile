@@ -1,4 +1,4 @@
-FROM openjdk:10-jdk
+FROM openjdk:12-jdk
 LABEL maintainer="michzuerch@gmail.com"
 VOLUME /tmp
 ADD target/LocateIPAddress.jar LocateIPAddress.jar

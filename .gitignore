@@ -186,3 +186,8 @@ hs_err_pid*
 /data/
 Würde data/ löschen
 Würde src/main/java/com/gmail/michzuerch/locateipaddress/config/ löschen
+
+# logfiles
+/locateipaddress.log.*
+/locateipaddress.log
+

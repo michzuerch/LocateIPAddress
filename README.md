@@ -22,3 +22,7 @@ Navigate to the `com.gmail.michzuerch.locateipaddress.LocateIPAddressApplication
 ## Running on Docker-Compose
 
 First create a volume `docker volume create --name locateipaddress-mongo-data`
+
+## Open in Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/michzuerch/LocateIPAddress)
