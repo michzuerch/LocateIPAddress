@@ -26,3 +26,8 @@ First create a volume `docker volume create --name locateipaddress-mongo-data`
 ## Open in Gitpod
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/michzuerch/LocateIPAddress)
+
+
+## Install OpenJDK in Gitpod
+
+`sdk install java 12.0.2-open`
