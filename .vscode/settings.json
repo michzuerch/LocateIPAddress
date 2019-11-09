@@ -1,4 +1,3 @@
 {
-    "java.jdt.ls.vmargs": "-javaagent:/home/snjeza/.m2/repository/org/projectlombok/lombok/1.16.20/lombok-1.16.20.jar -Xbootclasspath/a:/home/snjeza/.m2/repository/org/projectlombok/lombok/1.16.20/lombok-1.16.20.jar -noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
     "java.configuration.updateBuildConfiguration": "automatic"
 }
