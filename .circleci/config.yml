@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 jobs: 
   build: 
     
-    working_directory: ~/anouman-app
+    working_directory: ~/locateipaddress-app
 
     docker: 
       - image: circleci/openjdk:13-buster
@@ -12,14 +12,14 @@ jobs:
       - checkout 
 
       - restore_cache: 
-          key: anouman-app-{{ checksum "pom.xml" }}
+          key: locateipaddress-app-{{ checksum "pom.xml" }}
       
       - run: mvn dependency:go-offline
       
       - save_cache:
           paths:
             - ~/.m2
-          key: anouman-app-{{ checksum "pom.xml" }}
+          key: locateipaddress-app-{{ checksum "pom.xml" }}
 
       - run: mvn com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -DnodeVersion="v12.13.0"
       
