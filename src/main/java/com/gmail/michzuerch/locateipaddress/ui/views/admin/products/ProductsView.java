@@ -15,16 +15,16 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
 import com.gmail.michzuerch.locateipaddress.ui.crud.AbstractBakeryCrudView;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 
 import java.util.Currency;
 
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.PAGE_PRODUCTS;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.PAGE_PRODUCTS;
 
 @Route(value = PAGE_PRODUCTS, layout = MainView.class)
-@PageTitle(LocateIPAddressConst.TITLE_PRODUCTS)
+@PageTitle(I18nConst.TITLE_PRODUCTS)
 @Secured(Role.ADMIN)
 public class ProductsView extends AbstractBakeryCrudView<Product> {
 
@@ -63,8 +63,7 @@ public class ProductsView extends AbstractBakeryCrudView<Product> {
 		price.setPattern("\\d+(\\.\\d?\\d?)?$");
 		price.setPreventInvalidInput(true);
 
-		String currencySymbol = Currency.getInstance(LocateIPAddressConst.APP_LOCALE).getSymbol();
-		price.setPrefixComponent(new Span(currencySymbol));
+		String currencySymb
 
 		return new BinderCrudEditor<Product>(binder, form);
 	}

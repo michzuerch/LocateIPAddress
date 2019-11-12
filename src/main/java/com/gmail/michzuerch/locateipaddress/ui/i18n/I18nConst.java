@@ -1,10 +1,10 @@
-package com.gmail.michzuerch.locateipaddress.ui.utils;
+package com.gmail.michzuerch.locateipaddress.ui.i18n;
 
 import java.util.Locale;
 
 import org.springframework.data.domain.Sort;
 
-public class LocateIPAddressConst {
+public class I18nConst {
 
 	public static final Locale APP_LOCALE = Locale.US;
 

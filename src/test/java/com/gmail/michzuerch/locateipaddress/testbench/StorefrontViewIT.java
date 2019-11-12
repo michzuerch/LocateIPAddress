@@ -17,7 +17,7 @@ import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.OrderItemEdito
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.StorefrontViewElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.StorefrontViewElement.OrderEditorElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.UsersViewElement;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 
 public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 

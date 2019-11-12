@@ -28,15 +28,15 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 import com.gmail.michzuerch.locateipaddress.app.HasLogger;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.views.EntityView;
 
 @Tag("storefront-view")
 @JsModule("./src/views/storefront/storefront-view.js")
-@Route(value = LocateIPAddressConst.PAGE_STOREFRONT, layout = MainView.class)
-@RouteAlias(value = LocateIPAddressConst.PAGE_STOREFRONT_EDIT, layout = MainView.class)
-@RouteAlias(value = LocateIPAddressConst.PAGE_ROOT, layout = MainView.class)
-@PageTitle(LocateIPAddressConst.TITLE_STOREFRONT)
+@Route(value = I18nConst.PAGE_STOREFRONT, layout = MainView.class)
+@RouteAlias(value = I18nConst.PAGE_STOREFRONT_EDIT, layout = MainView.class)
+@RouteAlias(value = I18nConst.PAGE_ROOT, layout = MainView.class)
+@PageTitle(I18nConst.TITLE_STOREFRONT)
 public class StorefrontView extends PolymerTemplate<TemplateModel>
 		implements HasLogger, HasUrlParameter<Long>, EntityView<Order> {
 
@@ -74,7 +74,7 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 				.withProperty("orderCard", OrderCard::create)
 				.withProperty("header", order -> presenter.getHeaderByOrderId(order.getId()))
 				.withEventHandler("cardClick",
-						order -> UI.getCurrent().navigate(LocateIPAddressConst.PAGE_STOREFRONT + "/" + order.getId())));
+						order -> UI.getCurrent().navigate(I18nConst.PAGE_STOREFRONT + "/" + order.getId())));
 
 		getSearchBar().addFilterChangeListener(
 				e -> presenter.filterChanged(getSearchBar().getFilter(), getSearchBar().isCheckboxChecked()));
@@ -101,7 +101,7 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 
 	@Override
 	public void setParameter(BeforeEvent event, @OptionalParameter Long orderId) {
-		boolean editView = event.getLocation().getPath().contains(LocateIPAddressConst.PAGE_STOREFRONT_EDIT);
+		boolean editView = event.getLocation().getPath().contains(I18nConst.PAGE_STOREFRONT_EDIT);
 		if (orderId != null) {
 			presenter.onNavigation(orderId, editView);
 		} else if (dialog.isOpened()) {
@@ -110,7 +110,7 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 	}
 
 	void navigateToMainView() {
-		getUI().ifPresent(ui -> ui.navigate(LocateIPAddressConst.PAGE_STOREFRONT));
+		getUI().ifPresent(ui -> ui.navigate(I18nConst.PAGE_STOREFRONT));
 	}
 
 	@Override

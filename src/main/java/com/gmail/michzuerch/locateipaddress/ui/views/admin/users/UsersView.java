@@ -1,6 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.ui.views.admin.users;
 
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.PAGE_USERS;
+import static com.gmail.michzuerch.locat
+eipaddress.ui.i18n.I18nConst.PAGE_USERS;
 
 import com.gmail.michzuerch.locateipaddress.app.security.CurrentUser;
 import com.gmail.michzuerch.locateipaddress.backend.data.Role;
@@ -24,10 +25,10 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
 import com.gmail.michzuerch.locateipaddress.ui.crud.AbstractBakeryCrudView;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 
 @Route(value = PAGE_USERS, layout = MainView.class)
-@PageTitle(LocateIPAddressConst.TITLE_USERS)
+@PageTitle(I18nConst.TITLE_USERS)
 @Secured(Role.ADMIN)
 public class UsersView extends AbstractBakeryCrudView<User> {
 

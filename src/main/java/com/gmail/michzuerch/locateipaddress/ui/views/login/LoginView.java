@@ -11,13 +11,13 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.StorefrontView;
 
 @Route
 @PageTitle("locateipaddress-app")
 @JsModule("./styles/shared-styles.js")
-@Viewport(LocateIPAddressConst.VIEWPORT)
+@Viewport(I18nConst.VIEWPORT)
 public class LoginView extends LoginOverlay
 	implements AfterNavigationObserver, BeforeEnterObserver {
 

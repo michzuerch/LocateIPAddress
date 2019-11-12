@@ -41,15 +41,15 @@ import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.OrderSummary;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Product;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.utils.FormattingUtils;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.OrderCard;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.beans.OrdersCountDataWithChart;
 
 @Tag("dashboard-view")
 @JsModule("./src/views/dashboard/dashboard-view.js")
-@Route(value = LocateIPAddressConst.PAGE_DASHBOARD, layout = MainView.class)
-@PageTitle(LocateIPAddressConst.TITLE_DASHBOARD)
+@Route(value = I18nConst.PAGE_DASHBOARD, layout = MainView.class)
+@PageTitle(I18nConst.TITLE_DASHBOARD)
 public class DashboardView extends PolymerTemplate<TemplateModel> {
 
 	private static final long serialVersionUID = 1L;
@@ -97,7 +97,7 @@ public class DashboardView extends PolymerTemplate<TemplateModel> {
 				.withProperty("orderCard", OrderCard::create)
 				.withProperty("header", order -> null)
 				.withEventHandler("cardClick",
-						order -> UI.getCurrent().navigate(LocateIPAddressConst.PAGE_STOREFRONT + "/" + order.getId())));
+						order -> UI.getCurrent().navigate(I18nConst.PAGE_STOREFRONT + "/" + order.getId())));
 
 		grid.setSelectionMode(Grid.SelectionMode.NONE);
 		grid.setDataProvider(orderDataProvider);

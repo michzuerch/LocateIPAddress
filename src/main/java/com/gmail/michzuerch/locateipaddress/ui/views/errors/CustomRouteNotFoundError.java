@@ -14,10 +14,10 @@ import com.vaadin.flow.router.ParentLayout;
 import com.vaadin.flow.router.RouteNotFoundError;
 import com.vaadin.flow.router.RouterLink;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
-import com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 
 @ParentLayout(MainView.class)
-@PageTitle(LocateIPAddressConst.TITLE_NOT_FOUND)
+@PageTitle(I18nConst.TITLE_NOT_FOUND)
 @JsModule("./styles/shared-styles.js")
 public class CustomRouteNotFoundError extends RouteNotFoundError {
 

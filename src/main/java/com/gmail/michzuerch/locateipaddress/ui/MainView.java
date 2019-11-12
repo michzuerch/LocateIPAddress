@@ -1,11 +1,11 @@
 package com.gmail.michzuerch.locateipaddress.ui;
 
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.TITLE_DASHBOARD;
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.TITLE_LOGOUT;
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.TITLE_PRODUCTS;
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.TITLE_STOREFRONT;
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.TITLE_USERS;
-import static com.gmail.michzuerch.locateipaddress.ui.utils.LocateIPAddressConst.VIEWPORT;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_DASHBOARD;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_LOGOUT;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_PRODUCTS;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_STOREFRONT;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_USERS;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.VIEWPORT;
 
 import com.gmail.michzuerch.locateipaddress.app.security.SecurityUtils;
 import com.gmail.michzuerch.locateipaddress.ui.components.OfflineBanner;
