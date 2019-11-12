@@ -1,7 +1,6 @@
 package com.gmail.michzuerch.locateipaddress.ui.views.admin.users;
 
-import static com.gmail.michzuerch.locat
-eipaddress.ui.i18n.I18nConst.PAGE_USERS;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.PAGE_USERS;
 
 import com.gmail.michzuerch.locateipaddress.app.security.CurrentUser;
 import com.gmail.michzuerch.locateipaddress.backend.data.Role;

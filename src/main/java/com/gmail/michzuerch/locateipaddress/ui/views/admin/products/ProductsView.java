@@ -63,7 +63,8 @@ public class ProductsView extends AbstractBakeryCrudView<Product> {
 		price.setPattern("\\d+(\\.\\d?\\d?)?$");
 		price.setPreventInvalidInput(true);
 
-		String currencySymb
+		String currencySymbol = Currency.getInstance(I18nConst.APP_LOCALE).getSymbol();
+		price.setPrefixComponent(new Span(currencySymbol));
 
 		return new BinderCrudEditor<Product>(binder, form);
 	}
