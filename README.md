@@ -7,22 +7,8 @@ Locate IP Address App
 #### This project contains the source code for https://github.com/michzuerch/LocateIPAddress
 
 ### Branches
-* **Allring** - First working version for Vaadin 14
+* **Allright** - First working version for Vaadin 14
 * **development** - Development
-
-### Updates
-* 2019-09-15  Vaadin 14 - generated the source code by using the Starter Pack.
-* 2019-04-30  Vaadin 13 - generated the source code by using the Starter Pack.
-* 2019-01-18  Vaadin 12 - generated the source code by using the Starter Pack.
-* 2019-01-18  Vaadin 10 - generated the source code by using the Starter Pack.
-* 2018-07-15  Vaadin 8 - regenerated the source code by using the Starter Pack.
-* 2018-01-14  Vaadin 8 - regenerated the source code by using the Starter Pack.
-
-### Other Example Apps
-* [Petstore with a Spring-based Backend and Vaadin 8 UI](https://github.com/igor-baiborodine/jpetstore-6-vaadin-spring-boot)
-* [Beverage Buddy App Starter for Vaadin Flow](https://github.com/vaadin/beverage-starter-flow)
-* [Bookstore App Starter for Vaadin Flow](https://github.com/vaadin/bookstore-starter-flow)
-* [Business App Starter](https://github.com/igor-baiborodine/vaadin-demo-business-app)
 
 # Running the Project in Development Mode
 
