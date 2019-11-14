@@ -26,9 +26,9 @@ public class LoginView extends LoginOverlay
 	public LoginView() {
 		LoginI18n i18n = LoginI18n.createDefault();
 		i18n.setHeader(new LoginI18n.Header());
-		i18n.getHeader().setTitle("locateipaddress-app");
+		i18n.getHeader().setTitle("locateipaddress-app 2");
 		i18n.getHeader().setDescription(
-			"admin@vaadin.com + admin\n" + "barista@vaadin.com + barista");
+			"admin@michzuerch.gmail.com + admin\n" + "user@michzuerch.gmail.com + pass");
 		i18n.setAdditionalInformation(null);
 		i18n.setForm(new LoginI18n.Form());
 		i18n.getForm().setSubmit("Sign in");

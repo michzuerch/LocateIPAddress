@@ -1,6 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.backend.data;
 
 public class Role {
+	public static final String USER = "user";
 	public static final String BARISTA = "barista";
 	public static final String BAKER = "baker";
 	// This role implicitly allows access to all views.
@@ -11,7 +12,7 @@ public class Role {
 	}
 
 	public static String[] getAllRoles() {
-		return new String[] { BARISTA, BAKER, ADMIN };
+		return new String[] { BARISTA, BAKER, ADMIN, USER };
 	}
 
 }

@@ -331,13 +331,13 @@ public class DataGenerator implements HasLogger {
 	}
 
 	private User createBarista(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-		return userRepository.save(createUser("barista@vaadin.com", "Malin", "Castro",
-				passwordEncoder.encode("barista"), Role.BARISTA, true));
+		return userRepository.save(createUser("user@michzuerch.gmail.com", "Michael", "Zürcher",
+				passwordEncoder.encode("pass"), Role.BARISTA, true));
 	}
 
 	private User createAdmin(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		return userRepository.save(
-				createUser("admin@vaadin.com", "Göran", "Rich", passwordEncoder.encode("admin"), Role.ADMIN, true));
+				createUser("admin@michzuerch.gmail.com", "Michael", "Zürcher", passwordEncoder.encode("admin"), Role.ADMIN, true));
 	}
 
 	private void createDeletableUsers(UserRepository userRepository, PasswordEncoder passwordEncoder) {
