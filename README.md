@@ -1,5 +1,3 @@
-Tested on gitpod
-
 Locate IP Address App
 =======================
 <!--[![CircleCI](https://circleci.com/gh/igor-baiborodine/vaadin-demo-bakery-app.svg?style=svg)](https://circleci.com/gh/igor-baiborodine/vaadin-demo-bakery-app)-->
@@ -122,11 +120,5 @@ In order to run the scalability tests locally:
     ```
 
 Note: If you run Bakery with an in-memory database (like H2, which is the default), it will logically use more memory than when using an external database (like PostgreSQL). It is recommend to run scalability tests for Bakery only after you have configured it to use an external database.
-
-# License
-A paid Pro or Prime subscription is required for creating a new software project from this starter. After its creation, results can be used, developed and distributed freely, but licenses for the used commercial components are required during development. The starter or its parts cannot be redistributed as a code example or template.
-
-For full terms, see LICENSE
-
 
 mvn com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -D nodeVersion="v12.13.0"
