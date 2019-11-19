@@ -5,6 +5,7 @@ import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_LOGOU
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_PRODUCTS;
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_STOREFRONT;
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_USERS;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_LOCATIONS;
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.VIEWPORT;
 
 import com.gmail.michzuerch.locateipaddress.app.security.SecurityUtils;
@@ -12,6 +13,7 @@ import com.gmail.michzuerch.locateipaddress.ui.components.OfflineBanner;
 import com.gmail.michzuerch.locateipaddress.ui.views.admin.products.ProductsView;
 import com.gmail.michzuerch.locateipaddress.ui.views.admin.users.UsersView;
 import com.gmail.michzuerch.locateipaddress.ui.views.dashboard.DashboardView;
+import com.gmail.michzuerch.locateipaddress.ui.views.locations.LocationsView;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.StorefrontView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
@@ -108,7 +110,10 @@ public class MainView extends AppLayout {
 			tabs.add(createTab(VaadinIcon.CALENDAR, TITLE_PRODUCTS, ProductsView.class));
 		}
 		final String contextPath = VaadinServlet.getCurrent().getServletContext().getContextPath();
-		final Tab logoutTab = createTab(createLogoutLink(contextPath));
+        final Tab logoutTab = createTab(createLogoutLink(contextPath));
+        
+        tabs.add(createTab(VaadinIcon.BULLSEYE, TITLE_LOCATIONS, LocationsView.class ));
+
 		tabs.add(logoutTab);
 		return tabs.toArray(new Tab[tabs.size()]);
 	}
