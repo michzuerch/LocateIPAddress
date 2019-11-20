@@ -15,7 +15,7 @@ import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.StorefrontView;
 
 @Route
-@PageTitle("locateipaddress-app")
+@PageTitle("LocateIPAddress")
 @JsModule("./styles/shared-styles.js")
 @Viewport(I18nConst.VIEWPORT)
 public class LoginView extends LoginOverlay
@@ -26,7 +26,7 @@ public class LoginView extends LoginOverlay
 	public LoginView() {
 		LoginI18n i18n = LoginI18n.createDefault();
 		i18n.setHeader(new LoginI18n.Header());
-		i18n.getHeader().setTitle("locateipaddress-app 2");
+		i18n.getHeader().setTitle("Locate IP Address");
 		i18n.getHeader().setDescription(
 			"admin@michzuerch.gmail.com + admin\n" + "user@michzuerch.gmail.com + pass");
 		i18n.setAdditionalInformation(null);
