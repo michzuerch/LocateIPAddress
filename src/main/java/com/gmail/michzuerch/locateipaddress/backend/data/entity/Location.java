@@ -92,39 +92,11 @@ public class Location extends AbstractEntity {
     @Column
     private BigDecimal longitude;
 
-    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Block> blocks;
 
     public Location() {
     }
-
-    public Location(String geonameId, String localeCode, String continentCode, String continentName,
-            String countryIsoCode, String countryName, String subdivision1isoCode, String subdivision1name,
-            String subdivision2isoCode, String subdivision2name, String cityName, String metroCode, String timeZone,
-            String isInEuropeanUnion, String country, String city, String postalcode, BigDecimal latitude,
-            BigDecimal longitude, List<Block> blocks) {
-        this.geonameId = geonameId;
-        this.localeCode = localeCode;
-        this.continentCode = continentCode;
-        this.continentName = continentName;
-        this.countryIsoCode = countryIsoCode;
-        this.countryName = countryName;
-        this.subdivision1isoCode = subdivision1isoCode;
-        this.subdivision1name = subdivision1name;
-        this.subdivision2isoCode = subdivision2isoCode;
-        this.subdivision2name = subdivision2name;
-        this.cityName = cityName;
-        this.metroCode = metroCode;
-        this.timeZone = timeZone;
-        this.isInEuropeanUnion = isInEuropeanUnion;
-        this.country = country;
-        this.city = city;
-        this.postalcode = postalcode;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.blocks = blocks;
-    }
-
     public String getGeonameId() {
         return this.geonameId;
     }
@@ -408,27 +380,6 @@ public class Location extends AbstractEntity {
                 && Objects.equals(country, location.country) && Objects.equals(city, location.city)
                 && Objects.equals(postalcode, location.postalcode) && Objects.equals(latitude, location.latitude)
                 && Objects.equals(longitude, location.longitude) && Objects.equals(blocks, location.blocks);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(geonameId, localeCode, continentCode, continentName, countryIsoCode, countryName,
-                subdivision1isoCode, subdivision1name, subdivision2isoCode, subdivision2name, cityName, metroCode,
-                timeZone, isInEuropeanUnion, country, city, postalcode, latitude, longitude, blocks);
-    }
-
-    @Override
-    public String toString() {
-        return "{" + " geonameId='" + getGeonameId() + "'" + ", localeCode='" + getLocaleCode() + "'"
-                + ", continentCode='" + getContinentCode() + "'" + ", continentName='" + getContinentName() + "'"
-                + ", countryIsoCode='" + getCountryIsoCode() + "'" + ", countryName='" + getCountryName() + "'"
-                + ", subdivision1isoCode='" + getSubdivision1isoCode() + "'" + ", subdivision1name='"
-                + getSubdivision1name() + "'" + ", subdivision2isoCode='" + getSubdivision2isoCode() + "'"
-                + ", subdivision2name='" + getSubdivision2name() + "'" + ", cityName='" + getCityName() + "'"
-                + ", metroCode='" + getMetroCode() + "'" + ", timeZone='" + getTimeZone() + "'"
-                + ", isInEuropeanUnion='" + getIsInEuropeanUnion() + "'" + ", country='" + getCountry() + "'"
-                + ", city='" + getCity() + "'" + ", postalcode='" + getPostalcode() + "'" + ", latitude='"
-                + getLatitude() + "'" + ", longitude='" + getLongitude() + "'" + ", blocks='" + getBlocks() + "'" + "}";
     }
 
 }

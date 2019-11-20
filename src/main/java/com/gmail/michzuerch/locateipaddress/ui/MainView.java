@@ -6,12 +6,14 @@ import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_PRODU
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_STOREFRONT;
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_USERS;
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_LOCATIONS;
+import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.TITLE_BLOCKS;
 import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.VIEWPORT;
 
 import com.gmail.michzuerch.locateipaddress.app.security.SecurityUtils;
 import com.gmail.michzuerch.locateipaddress.ui.components.OfflineBanner;
 import com.gmail.michzuerch.locateipaddress.ui.views.admin.products.ProductsView;
 import com.gmail.michzuerch.locateipaddress.ui.views.admin.users.UsersView;
+import com.gmail.michzuerch.locateipaddress.ui.views.block.BlocksView;
 import com.gmail.michzuerch.locateipaddress.ui.views.dashboard.DashboardView;
 import com.gmail.michzuerch.locateipaddress.ui.views.locations.LocationsView;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.StorefrontView;
@@ -113,6 +115,7 @@ public class MainView extends AppLayout {
         final Tab logoutTab = createTab(createLogoutLink(contextPath));
         
         tabs.add(createTab(VaadinIcon.BULLSEYE, TITLE_LOCATIONS, LocationsView.class ));
+        tabs.add(createTab(VaadinIcon.LAPTOP, TITLE_BLOCKS, BlocksView.class ));
 
 		tabs.add(logoutTab);
 		return tabs.toArray(new Tab[tabs.size()]);

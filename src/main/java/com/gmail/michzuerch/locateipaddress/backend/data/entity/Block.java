@@ -56,22 +56,6 @@ public class Block extends AbstractEntity {
     public Block() {
     }
 
-    public Block(String network, String geonameId, String registeredCountryGeonameId, String representedCountryGeonameId, String isAnonymousProxy, String isSatelliteProvider, String postalCode, String latitude, String longitude, String accuracyRadius, BigDecimal startip, BigDecimal endip, Location location) {
-        this.network = network;
-        this.geonameId = geonameId;
-        this.registeredCountryGeonameId = registeredCountryGeonameId;
-        this.representedCountryGeonameId = representedCountryGeonameId;
-        this.isAnonymousProxy = isAnonymousProxy;
-        this.isSatelliteProvider = isSatelliteProvider;
-        this.postalCode = postalCode;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.accuracyRadius = accuracyRadius;
-        this.startip = startip;
-        this.endip = endip;
-        this.location = location;
-    }
-
     public String getNetwork() {
         return this.network;
     }
@@ -256,24 +240,4 @@ public class Block extends AbstractEntity {
     public int hashCode() {
         return Objects.hash(network, geonameId, registeredCountryGeonameId, representedCountryGeonameId, isAnonymousProxy, isSatelliteProvider, postalCode, latitude, longitude, accuracyRadius, startip, endip, location);
     }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " network='" + getNetwork() + "'" +
-            ", geonameId='" + getGeonameId() + "'" +
-            ", registeredCountryGeonameId='" + getRegisteredCountryGeonameId() + "'" +
-            ", representedCountryGeonameId='" + getRepresentedCountryGeonameId() + "'" +
-            ", isAnonymousProxy='" + getIsAnonymousProxy() + "'" +
-            ", isSatelliteProvider='" + getIsSatelliteProvider() + "'" +
-            ", postalCode='" + getPostalCode() + "'" +
-            ", latitude='" + getLatitude() + "'" +
-            ", longitude='" + getLongitude() + "'" +
-            ", accuracyRadius='" + getAccuracyRadius() + "'" +
-            ", startip='" + getStartip() + "'" +
-            ", endip='" + getEndip() + "'" +
-            ", location='" + getLocation() + "'" +
-            "}";
-    }
-
 }
