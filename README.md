@@ -122,3 +122,7 @@ In order to run the scalability tests locally:
 Note: If you run Bakery with an in-memory database (like H2, which is the default), it will logically use more memory than when using an external database (like PostgreSQL). It is recommend to run scalability tests for Bakery only after you have configured it to use an external database.
 
 mvn com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -D nodeVersion="v12.13.0"
+
+## Checking for new maven dependencies
+
+mvn versions:display-dependency-updates

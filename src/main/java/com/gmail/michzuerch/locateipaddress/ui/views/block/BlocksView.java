@@ -34,7 +34,8 @@ public class BlocksView extends Div {
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	public BlocksView(BlockService service, CurrentUser currentUser) {
-        Grid<Block> grid = new Grid<>(Block.class);
+        Grid<Block> grid = new Grid<>(Block.class,false);
+        grid.addColumn("id");
         grid.setItems(service.getRepository().findAll());
         add(grid);
 	}

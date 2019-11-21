@@ -23,6 +23,7 @@ import com.gmail.michzuerch.locateipaddress.backend.repositories.ProductReposito
 import com.gmail.michzuerch.locateipaddress.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StopWatch;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Block;
@@ -75,6 +76,9 @@ public class DataGenerator implements HasLogger {
 
     @PostConstruct
     public void loadData() {
+        StopWatch stopWatch = new StopWatch("LocateIPAddress DataGenerator.loadData()");
+
+        stopWatch.start();
         if (userRepository.count() != 0L) {
             getLogger().info("Using existing database");
             return;
@@ -104,7 +108,8 @@ public class DataGenerator implements HasLogger {
         getLogger().info("... generating locations and blocks");
         createLocationsAndBlocks(locationRepository, blockRepository);
 
-        getLogger().info("Generated demo data");
+        stopWatch.stop();
+        getLogger().info("Generated demo data. Time:"+stopWatch.getTotalTimeMillis()+"ms.");
     }
 
     private void fillCustomer(Customer customer) {
@@ -401,10 +406,9 @@ public class DataGenerator implements HasLogger {
         return user;
     }
 
-    private Block createBlock(String accuracyRadius, BigDecimal endip, String geonameId,
-            String isAnonymousProxy, String isSatelliteProvider, String latitude, String longitude, String network,
-            String postalCode, String registeredCountryGeonameId, String representedCountryGeonameId,
-            BigDecimal startip) {
+    private Block createBlock(String accuracyRadius, BigDecimal endip, String geonameId, String isAnonymousProxy,
+            String isSatelliteProvider, String latitude, String longitude, String network, String postalCode,
+            String registeredCountryGeonameId, String representedCountryGeonameId, BigDecimal startip) {
         Block block = new Block();
         block.setAccuracyRadius(accuracyRadius);
         block.setEndip(endip);

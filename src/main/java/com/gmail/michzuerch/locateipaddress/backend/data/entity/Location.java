@@ -8,11 +8,18 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedEntityGraphs;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity(name = "Location") // "Order" is a reserved word
+@Entity(name = "Location") 
+@NamedEntityGraphs({@NamedEntityGraph(name = "LocationHasBlocks", attributeNodes = {
+		@NamedAttributeNode("blocks")
+})})
+//@Table(indexes = @Index(columnList = "dueDate"))
 public class Location extends AbstractEntity {
 
     private static final long serialVersionUID = 1L;
