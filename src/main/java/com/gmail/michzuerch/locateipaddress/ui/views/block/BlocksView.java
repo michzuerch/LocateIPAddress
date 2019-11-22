@@ -35,7 +35,7 @@ public class BlocksView extends Div {
 	@Autowired
 	public BlocksView(BlockService service, CurrentUser currentUser) {
         Grid<Block> grid = new Grid<>(Block.class,false);
-        grid.addColumn("id");
+        grid.addColumns("id","startip","endip","isAnonymousProxy","isSatelliteProvider","latitude","longitude","accuracyRadius");
         grid.setItems(service.getRepository().findAll());
         add(grid);
 	}

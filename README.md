@@ -125,4 +125,6 @@ mvn com.github.eirslett:frontend-maven-plugin:1.7.6:install-node-and-npm -D node
 
 ## Checking for new maven dependencies
 
+```sh
 mvn versions:display-dependency-updates
+```

@@ -32,7 +32,8 @@ public class LocationsView extends Div {
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	public LocationsView(LocationService service, CurrentUser currentUser) {
-        Grid<Location> grid = new Grid<>(Location.class);
+        Grid<Location> grid = new Grid<>(Location.class,false);
+        grid.addColumns("id","localeCode","continentCode","continentName","countryIsoCode","countryName","cityName");
         grid.setItems(service.getRepository().findAll());
         add(grid);
 	}

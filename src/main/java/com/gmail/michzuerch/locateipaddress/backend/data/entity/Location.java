@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.NamedAttributeNode;
@@ -24,79 +23,44 @@ public class Location extends AbstractEntity {
 
     private static final long serialVersionUID = 1L;
 
-    @Column
     @NotNull(message = "{locateipaddress.geonameId.required")
     @Size(min = 3)
     private String geonameId;
 
-    @Column
-    @Size(min = 3)
     private String localeCode;
 
-    @Column
-    @Size(min = 3)
     private String continentCode;
 
-    @Column
-    @Size(min = 3)
     private String continentName;
 
-    @Column
-    @Size(min = 3)
     private String countryIsoCode;
 
-    @Column
-    @Size(min = 3)
     private String countryName;
 
-    @Column
-    @Size(min = 3)
     private String subdivision1isoCode;
 
-    @Column
-    @Size(min = 3)
     private String subdivision1name;
 
-    @Column
-    @Size(min = 3)
     private String subdivision2isoCode;
 
-    @Column
-    @Size(min = 3)
     private String subdivision2name;
 
-    @Column
-    @Size(min = 3)
     private String cityName;
 
-    @Column
-    @Size(min = 3)
     private String metroCode;
 
-    @Column
-    @Size(min = 3)
     private String timeZone;
 
-    @Column
-    @Size(min = 3)
     private String isInEuropeanUnion;
 
-    @Column
-    @Size(min = 3)
     private String country;
 
-    @Column
-    @Size(min = 3)
     private String city;
 
-    @Column
-    @Size(min = 3)
     private String postalcode;
 
-    @Column
     private BigDecimal latitude;
 
-    @Column
     private BigDecimal longitude;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -3,7 +3,6 @@ package com.gmail.michzuerch.locateipaddress.backend.data.entity;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -13,41 +12,29 @@ public class Block extends AbstractEntity {
 
     private static final long serialVersionUID = 1L;
 
-    @Column
     @NotNull(message = "{locateipaddress.network.required")
     private String network;
 
-    @Column
     private String geonameId;
 
-    @Column
     private String registeredCountryGeonameId;
 
-    @Column
     private String representedCountryGeonameId;
 
-    @Column
     private String isAnonymousProxy;
 
-    @Column
     private String isSatelliteProvider;
 
-    @Column
     private String postalCode;
 
-    @Column
     private String latitude;
 
-    @Column
     private String longitude;
 
-    @Column
     private String accuracyRadius;
 
-    @Column
     private BigDecimal startip;
 
-    @Column
     private BigDecimal endip;
 
     @ManyToOne
