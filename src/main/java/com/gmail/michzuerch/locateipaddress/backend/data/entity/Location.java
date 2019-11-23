@@ -63,7 +63,7 @@ public class Location extends AbstractEntity {
 
     private BigDecimal longitude;
 
-    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<Block> blocks;
 
     public Location() {
