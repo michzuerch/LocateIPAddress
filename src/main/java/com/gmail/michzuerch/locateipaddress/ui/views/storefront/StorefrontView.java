@@ -1,35 +1,29 @@
 package com.gmail.michzuerch.locateipaddress.ui.views.storefront;
 
-import java.util.stream.Stream;
-
+import com.gmail.michzuerch.locateipaddress.app.HasLogger;
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.util.EntityUtil;
+import com.gmail.michzuerch.locateipaddress.ui.MainView;
 import com.gmail.michzuerch.locateipaddress.ui.components.SearchBar;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
+import com.gmail.michzuerch.locateipaddress.ui.views.EntityView;
 import com.gmail.michzuerch.locateipaddress.ui.views.orderedit.OrderDetails;
 import com.gmail.michzuerch.locateipaddress.ui.views.orderedit.OrderEditor;
-import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
-import com.vaadin.flow.component.dependency.JsModule;
-import com.vaadin.flow.component.dialog.Dialog;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.util.EntityUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.vaadin.flow.component.HasValue;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.data.binder.ValidationException;
-import com.vaadin.flow.router.BeforeEvent;
-import com.vaadin.flow.router.HasUrlParameter;
-import com.vaadin.flow.router.OptionalParameter;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
+import com.vaadin.flow.router.*;
 import com.vaadin.flow.templatemodel.TemplateModel;
-import com.gmail.michzuerch.locateipaddress.app.HasLogger;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
-import com.gmail.michzuerch.locateipaddress.ui.MainView;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
-import com.gmail.michzuerch.locateipaddress.ui.views.EntityView;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.stream.Stream;
 
 @Tag("storefront-view")
 @JsModule("./src/views/storefront/storefront-view.js")
@@ -41,23 +35,16 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 		implements HasLogger, HasUrlParameter<Long>, EntityView<Order> {
 
 	private static final long serialVersionUID = 1L;
-
+	private final OrderEditor orderEditor;
+	private final OrderDetails orderDetails = new OrderDetails();
+	private final OrderPresenter presenter;
 	@Id("search")
 	private SearchBar searchBar;
-
 	@Id("grid")
 	private Grid<Order> grid;
-
 	@Id("dialog")
 	private Dialog dialog;
-
 	private ConfirmDialog confirmation;
-
-	private final OrderEditor orderEditor;
-
-	private final OrderDetails orderDetails = new OrderDetails();
-
-	private final OrderPresenter presenter;
 
 	@Autowired
 	public StorefrontView(OrderPresenter presenter, OrderEditor orderEditor) {

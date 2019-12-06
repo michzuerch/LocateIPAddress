@@ -9,7 +9,6 @@ import com.vaadin.flow.component.notification.Notification.Position;
 
 /**
  * Interface for views showing notifications to users
- *
  */
 public interface HasNotifications extends HasElement {
 

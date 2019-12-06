@@ -1,16 +1,14 @@
 package com.gmail.michzuerch.locateipaddress.backend.service;
 
-import java.util.function.BiConsumer;
-
-import javax.transaction.Transactional;
-
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Location;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.User;
 import com.gmail.michzuerch.locateipaddress.backend.repositories.LocationRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.function.BiConsumer;
 
 @Service
 public class LocationService implements CrudService<Location> {
@@ -57,7 +55,7 @@ public class LocationService implements CrudService<Location> {
 	// 		}
 	// 	}
 	// }
-	
+
 	// @Transactional
 	// public List<OrderSummary> findAnyMatchingStartingToday() {
 	// 	return orderRepository.findByDueDateGreaterThanEqual(LocalDate.now());
@@ -98,7 +96,7 @@ public class LocationService implements CrudService<Location> {
 	@Override
 	@Transactional
 	public Location createNew(User currentUser) {
-        Location location = new Location();
+		Location location = new Location();
 		return location;
 	}
 }

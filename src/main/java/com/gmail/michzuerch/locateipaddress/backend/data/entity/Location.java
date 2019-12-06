@@ -1,28 +1,15 @@
 package com.gmail.michzuerch.locateipaddress.backend.data.entity;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Objects;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.NamedAttributeNode;
-import javax.persistence.NamedEntityGraph;
-import javax.persistence.NamedEntityGraphs;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
+import java.util.List;
 
-@Entity(name = "Location") 
-@NamedEntityGraphs({@NamedEntityGraph(name = "LocationHasBlocks", attributeNodes = {
-		@NamedAttributeNode("blocks")
-})})
-//@Table(indexes = @Index(columnList = "dueDate"))
+@Entity(name = "Location")
 public class Location extends AbstractEntity {
-
-    private static final long serialVersionUID = 1L;
-
     @NotNull(message = "{locateipaddress.geonameId.required")
     @Size(min = 3)
     private String geonameId;
@@ -66,10 +53,34 @@ public class Location extends AbstractEntity {
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<Block> blocks;
 
+    private Location(Builder builder) {
+        setGeonameId(builder.geonameId);
+        setLocaleCode(builder.localeCode);
+        setContinentCode(builder.continentCode);
+        setContinentName(builder.continentName);
+        setCountryIsoCode(builder.countryIsoCode);
+        setCountryName(builder.countryName);
+        setSubdivision1isoCode(builder.subdivision1isoCode);
+        setSubdivision1name(builder.subdivision1name);
+        setSubdivision2isoCode(builder.subdivision2isoCode);
+        setSubdivision2name(builder.subdivision2name);
+        setCityName(builder.cityName);
+        setMetroCode(builder.metroCode);
+        setTimeZone(builder.timeZone);
+        setIsInEuropeanUnion(builder.isInEuropeanUnion);
+        setCountry(builder.country);
+        setCity(builder.city);
+        setPostalcode(builder.postalcode);
+        setLatitude(builder.latitude);
+        setLongitude(builder.longitude);
+        setBlocks(builder.blocks);
+    }
+
     public Location() {
     }
+
     public String getGeonameId() {
-        return this.geonameId;
+        return geonameId;
     }
 
     public void setGeonameId(String geonameId) {
@@ -77,7 +88,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getLocaleCode() {
-        return this.localeCode;
+        return localeCode;
     }
 
     public void setLocaleCode(String localeCode) {
@@ -85,7 +96,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getContinentCode() {
-        return this.continentCode;
+        return continentCode;
     }
 
     public void setContinentCode(String continentCode) {
@@ -93,7 +104,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getContinentName() {
-        return this.continentName;
+        return continentName;
     }
 
     public void setContinentName(String continentName) {
@@ -101,7 +112,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getCountryIsoCode() {
-        return this.countryIsoCode;
+        return countryIsoCode;
     }
 
     public void setCountryIsoCode(String countryIsoCode) {
@@ -109,7 +120,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getCountryName() {
-        return this.countryName;
+        return countryName;
     }
 
     public void setCountryName(String countryName) {
@@ -117,7 +128,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getSubdivision1isoCode() {
-        return this.subdivision1isoCode;
+        return subdivision1isoCode;
     }
 
     public void setSubdivision1isoCode(String subdivision1isoCode) {
@@ -125,7 +136,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getSubdivision1name() {
-        return this.subdivision1name;
+        return subdivision1name;
     }
 
     public void setSubdivision1name(String subdivision1name) {
@@ -133,7 +144,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getSubdivision2isoCode() {
-        return this.subdivision2isoCode;
+        return subdivision2isoCode;
     }
 
     public void setSubdivision2isoCode(String subdivision2isoCode) {
@@ -141,7 +152,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getSubdivision2name() {
-        return this.subdivision2name;
+        return subdivision2name;
     }
 
     public void setSubdivision2name(String subdivision2name) {
@@ -149,7 +160,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getCityName() {
-        return this.cityName;
+        return cityName;
     }
 
     public void setCityName(String cityName) {
@@ -157,7 +168,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getMetroCode() {
-        return this.metroCode;
+        return metroCode;
     }
 
     public void setMetroCode(String metroCode) {
@@ -165,7 +176,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getTimeZone() {
-        return this.timeZone;
+        return timeZone;
     }
 
     public void setTimeZone(String timeZone) {
@@ -173,7 +184,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getIsInEuropeanUnion() {
-        return this.isInEuropeanUnion;
+        return isInEuropeanUnion;
     }
 
     public void setIsInEuropeanUnion(String isInEuropeanUnion) {
@@ -181,7 +192,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getCountry() {
-        return this.country;
+        return country;
     }
 
     public void setCountry(String country) {
@@ -189,7 +200,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getCity() {
-        return this.city;
+        return city;
     }
 
     public void setCity(String city) {
@@ -197,7 +208,7 @@ public class Location extends AbstractEntity {
     }
 
     public String getPostalcode() {
-        return this.postalcode;
+        return postalcode;
     }
 
     public void setPostalcode(String postalcode) {
@@ -205,7 +216,7 @@ public class Location extends AbstractEntity {
     }
 
     public BigDecimal getLatitude() {
-        return this.latitude;
+        return latitude;
     }
 
     public void setLatitude(BigDecimal latitude) {
@@ -213,7 +224,7 @@ public class Location extends AbstractEntity {
     }
 
     public BigDecimal getLongitude() {
-        return this.longitude;
+        return longitude;
     }
 
     public void setLongitude(BigDecimal longitude) {
@@ -221,136 +232,140 @@ public class Location extends AbstractEntity {
     }
 
     public List<Block> getBlocks() {
-        return this.blocks;
+        return blocks;
     }
 
     public void setBlocks(List<Block> blocks) {
         this.blocks = blocks;
     }
 
-    public Location geonameId(String geonameId) {
-        this.geonameId = geonameId;
-        return this;
-    }
+    public static final class Builder {
+        private @NotNull(message = "{locateipaddress.geonameId.required") @Size(min = 3) String geonameId;
+        private String localeCode;
+        private String continentCode;
+        private String continentName;
+        private String countryIsoCode;
+        private String countryName;
+        private String subdivision1isoCode;
+        private String subdivision1name;
+        private String subdivision2isoCode;
+        private String subdivision2name;
+        private String cityName;
+        private String metroCode;
+        private String timeZone;
+        private String isInEuropeanUnion;
+        private String country;
+        private String city;
+        private String postalcode;
+        private BigDecimal latitude;
+        private BigDecimal longitude;
+        private List<Block> blocks;
 
-    public Location localeCode(String localeCode) {
-        this.localeCode = localeCode;
-        return this;
-    }
-
-    public Location continentCode(String continentCode) {
-        this.continentCode = continentCode;
-        return this;
-    }
-
-    public Location continentName(String continentName) {
-        this.continentName = continentName;
-        return this;
-    }
-
-    public Location countryIsoCode(String countryIsoCode) {
-        this.countryIsoCode = countryIsoCode;
-        return this;
-    }
-
-    public Location countryName(String countryName) {
-        this.countryName = countryName;
-        return this;
-    }
-
-    public Location subdivision1isoCode(String subdivision1isoCode) {
-        this.subdivision1isoCode = subdivision1isoCode;
-        return this;
-    }
-
-    public Location subdivision1name(String subdivision1name) {
-        this.subdivision1name = subdivision1name;
-        return this;
-    }
-
-    public Location subdivision2isoCode(String subdivision2isoCode) {
-        this.subdivision2isoCode = subdivision2isoCode;
-        return this;
-    }
-
-    public Location subdivision2name(String subdivision2name) {
-        this.subdivision2name = subdivision2name;
-        return this;
-    }
-
-    public Location cityName(String cityName) {
-        this.cityName = cityName;
-        return this;
-    }
-
-    public Location metroCode(String metroCode) {
-        this.metroCode = metroCode;
-        return this;
-    }
-
-    public Location timeZone(String timeZone) {
-        this.timeZone = timeZone;
-        return this;
-    }
-
-    public Location isInEuropeanUnion(String isInEuropeanUnion) {
-        this.isInEuropeanUnion = isInEuropeanUnion;
-        return this;
-    }
-
-    public Location country(String country) {
-        this.country = country;
-        return this;
-    }
-
-    public Location city(String city) {
-        this.city = city;
-        return this;
-    }
-
-    public Location postalcode(String postalcode) {
-        this.postalcode = postalcode;
-        return this;
-    }
-
-    public Location latitude(BigDecimal latitude) {
-        this.latitude = latitude;
-        return this;
-    }
-
-    public Location longitude(BigDecimal longitude) {
-        this.longitude = longitude;
-        return this;
-    }
-
-    public Location blocks(List<Block> blocks) {
-        this.blocks = blocks;
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Location)) {
-            return false;
+        public Builder() {
         }
-        Location location = (Location) o;
-        return Objects.equals(geonameId, location.geonameId) && Objects.equals(localeCode, location.localeCode)
-                && Objects.equals(continentCode, location.continentCode)
-                && Objects.equals(continentName, location.continentName)
-                && Objects.equals(countryIsoCode, location.countryIsoCode)
-                && Objects.equals(countryName, location.countryName)
-                && Objects.equals(subdivision1isoCode, location.subdivision1isoCode)
-                && Objects.equals(subdivision1name, location.subdivision1name)
-                && Objects.equals(subdivision2isoCode, location.subdivision2isoCode)
-                && Objects.equals(subdivision2name, location.subdivision2name)
-                && Objects.equals(cityName, location.cityName) && Objects.equals(metroCode, location.metroCode)
-                && Objects.equals(timeZone, location.timeZone)
-                && Objects.equals(isInEuropeanUnion, location.isInEuropeanUnion)
-                && Objects.equals(country, location.country) && Objects.equals(city, location.city)
-                && Objects.equals(postalcode, location.postalcode) && Objects.equals(latitude, location.latitude)
-                && Objects.equals(longitude, location.longitude) && Objects.equals(blocks, location.blocks);
-    }
 
+        public Builder geonameId(@NotNull(message = "{locateipaddress.geonameId.required") @Size(min = 3) String val) {
+            geonameId = val;
+            return this;
+        }
+
+        public Builder localeCode(String val) {
+            localeCode = val;
+            return this;
+        }
+
+        public Builder continentCode(String val) {
+            continentCode = val;
+            return this;
+        }
+
+        public Builder continentName(String val) {
+            continentName = val;
+            return this;
+        }
+
+        public Builder countryIsoCode(String val) {
+            countryIsoCode = val;
+            return this;
+        }
+
+        public Builder countryName(String val) {
+            countryName = val;
+            return this;
+        }
+
+        public Builder subdivision1isoCode(String val) {
+            subdivision1isoCode = val;
+            return this;
+        }
+
+        public Builder subdivision1name(String val) {
+            subdivision1name = val;
+            return this;
+        }
+
+        public Builder subdivision2isoCode(String val) {
+            subdivision2isoCode = val;
+            return this;
+        }
+
+        public Builder subdivision2name(String val) {
+            subdivision2name = val;
+            return this;
+        }
+
+        public Builder cityName(String val) {
+            cityName = val;
+            return this;
+        }
+
+        public Builder metroCode(String val) {
+            metroCode = val;
+            return this;
+        }
+
+        public Builder timeZone(String val) {
+            timeZone = val;
+            return this;
+        }
+
+        public Builder isInEuropeanUnion(String val) {
+            isInEuropeanUnion = val;
+            return this;
+        }
+
+        public Builder country(String val) {
+            country = val;
+            return this;
+        }
+
+        public Builder city(String val) {
+            city = val;
+            return this;
+        }
+
+        public Builder postalcode(String val) {
+            postalcode = val;
+            return this;
+        }
+
+        public Builder latitude(BigDecimal val) {
+            latitude = val;
+            return this;
+        }
+
+        public Builder longitude(BigDecimal val) {
+            longitude = val;
+            return this;
+        }
+
+        public Builder blocks(List<Block> val) {
+            blocks = val;
+            return this;
+        }
+
+        public Location build() {
+            return new Location(this);
+        }
+    }
 }

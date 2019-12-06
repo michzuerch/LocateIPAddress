@@ -1,36 +1,23 @@
 package com.gmail.michzuerch.locateipaddress.backend.data.entity;
 
+import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
+import org.hibernate.annotations.BatchSize;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Index;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedAttributeNode;
-import javax.persistence.NamedEntityGraph;
-import javax.persistence.NamedEntityGraphs;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderColumn;
-import javax.persistence.Table;
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
-import org.hibernate.annotations.BatchSize;
-
 @Entity(name = "OrderInfo") // "Order" is a reserved word
 @NamedEntityGraphs({@NamedEntityGraph(name = Order.ENTITY_GRAPTH_BRIEF, attributeNodes = {
 		@NamedAttributeNode("customer"),
 		@NamedAttributeNode("pickupLocation")
-}),@NamedEntityGraph(name = Order.ENTITY_GRAPTH_FULL, attributeNodes = {
+}), @NamedEntityGraph(name = Order.ENTITY_GRAPTH_FULL, attributeNodes = {
 		@NamedAttributeNode("customer"),
 		@NamedAttributeNode("pickupLocation"),
 		@NamedAttributeNode("history")
@@ -38,10 +25,9 @@ import org.hibernate.annotations.BatchSize;
 @Table(indexes = @Index(columnList = "dueDate"))
 public class Order extends AbstractEntity implements OrderSummary {
 
-	private static final long serialVersionUID = 1L;
 	public static final String ENTITY_GRAPTH_BRIEF = "Order.brief";
 	public static final String ENTITY_GRAPTH_FULL = "Order.full";
-
+	private static final long serialVersionUID = 1L;
 	@NotNull(message = "{bakery.due.date.required}")
 	private LocalDate dueDate;
 

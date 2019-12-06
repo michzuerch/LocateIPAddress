@@ -1,10 +1,10 @@
 package com.gmail.michzuerch.locateipaddress.backend.data.entity;
 
+import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-
-import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
 
 public interface OrderSummary {
 	Long getId();

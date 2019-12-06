@@ -37,8 +37,8 @@
         <scala-maven-plugin.version>3.4.4</scala-maven-plugin.version>
 
         <!-- Frontend -->
-        <node.version>v12.13.0</node.version>
-        <yarn.version>v1.19.1</yarn.version>
+        <node.version>v12.13.1</node.version>
+        <yarn.version>v1.19.2</yarn.version>
         <buildtools.directory>build-tools</buildtools.directory>
     </properties>
 

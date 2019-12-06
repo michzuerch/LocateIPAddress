@@ -5,5 +5,5 @@ import com.gmail.michzuerch.locateipaddress.backend.data.entity.User;
 @FunctionalInterface
 public interface CurrentUser {
 
-	User getUser();
+    User getUser();
 }

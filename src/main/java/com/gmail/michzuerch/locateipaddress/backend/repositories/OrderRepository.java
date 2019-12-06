@@ -1,11 +1,8 @@
 package com.gmail.michzuerch.locateipaddress.backend.repositories;
 
-import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-
 import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.OrderSummary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -13,8 +10,10 @@ import org.springframework.data.jpa.repository.EntityGraph.EntityGraphType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.OrderSummary;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 

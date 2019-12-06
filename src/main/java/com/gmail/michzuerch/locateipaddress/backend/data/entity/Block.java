@@ -1,17 +1,12 @@
 package com.gmail.michzuerch.locateipaddress.backend.data.entity;
 
-import java.math.BigDecimal;
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Entity(name = "Block") // "Order" is a reserved word
 public class Block extends AbstractEntity {
-
-    private static final long serialVersionUID = 1L;
-
     @NotNull(message = "{locateipaddress.network.required")
     private String network;
 
@@ -40,11 +35,27 @@ public class Block extends AbstractEntity {
     @ManyToOne
     private Location location;
 
+    private Block(Builder builder) {
+        setNetwork(builder.network);
+        setGeonameId(builder.geonameId);
+        setRegisteredCountryGeonameId(builder.registeredCountryGeonameId);
+        setRepresentedCountryGeonameId(builder.representedCountryGeonameId);
+        setIsAnonymousProxy(builder.isAnonymousProxy);
+        setIsSatelliteProvider(builder.isSatelliteProvider);
+        setPostalCode(builder.postalCode);
+        setLatitude(builder.latitude);
+        setLongitude(builder.longitude);
+        setAccuracyRadius(builder.accuracyRadius);
+        setStartip(builder.startip);
+        setEndip(builder.endip);
+        setLocation(builder.location);
+    }
+
     public Block() {
     }
 
     public String getNetwork() {
-        return this.network;
+        return network;
     }
 
     public void setNetwork(String network) {
@@ -52,7 +63,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getGeonameId() {
-        return this.geonameId;
+        return geonameId;
     }
 
     public void setGeonameId(String geonameId) {
@@ -60,7 +71,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getRegisteredCountryGeonameId() {
-        return this.registeredCountryGeonameId;
+        return registeredCountryGeonameId;
     }
 
     public void setRegisteredCountryGeonameId(String registeredCountryGeonameId) {
@@ -68,7 +79,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getRepresentedCountryGeonameId() {
-        return this.representedCountryGeonameId;
+        return representedCountryGeonameId;
     }
 
     public void setRepresentedCountryGeonameId(String representedCountryGeonameId) {
@@ -76,7 +87,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getIsAnonymousProxy() {
-        return this.isAnonymousProxy;
+        return isAnonymousProxy;
     }
 
     public void setIsAnonymousProxy(String isAnonymousProxy) {
@@ -84,7 +95,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getIsSatelliteProvider() {
-        return this.isSatelliteProvider;
+        return isSatelliteProvider;
     }
 
     public void setIsSatelliteProvider(String isSatelliteProvider) {
@@ -92,7 +103,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getPostalCode() {
-        return this.postalCode;
+        return postalCode;
     }
 
     public void setPostalCode(String postalCode) {
@@ -100,7 +111,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getLatitude() {
-        return this.latitude;
+        return latitude;
     }
 
     public void setLatitude(String latitude) {
@@ -108,7 +119,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getLongitude() {
-        return this.longitude;
+        return longitude;
     }
 
     public void setLongitude(String longitude) {
@@ -116,7 +127,7 @@ public class Block extends AbstractEntity {
     }
 
     public String getAccuracyRadius() {
-        return this.accuracyRadius;
+        return accuracyRadius;
     }
 
     public void setAccuracyRadius(String accuracyRadius) {
@@ -124,7 +135,7 @@ public class Block extends AbstractEntity {
     }
 
     public BigDecimal getStartip() {
-        return this.startip;
+        return startip;
     }
 
     public void setStartip(BigDecimal startip) {
@@ -132,7 +143,7 @@ public class Block extends AbstractEntity {
     }
 
     public BigDecimal getEndip() {
-        return this.endip;
+        return endip;
     }
 
     public void setEndip(BigDecimal endip) {
@@ -140,91 +151,98 @@ public class Block extends AbstractEntity {
     }
 
     public Location getLocation() {
-        return this.location;
+        return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
     }
 
-    public Block network(String network) {
-        this.network = network;
-        return this;
-    }
+    public static final class Builder {
+        private @NotNull(message = "{locateipaddress.network.required") String network;
+        private String geonameId;
+        private String registeredCountryGeonameId;
+        private String representedCountryGeonameId;
+        private String isAnonymousProxy;
+        private String isSatelliteProvider;
+        private String postalCode;
+        private String latitude;
+        private String longitude;
+        private String accuracyRadius;
+        private BigDecimal startip;
+        private BigDecimal endip;
+        private Location location;
 
-    public Block geonameId(String geonameId) {
-        this.geonameId = geonameId;
-        return this;
-    }
-
-    public Block registeredCountryGeonameId(String registeredCountryGeonameId) {
-        this.registeredCountryGeonameId = registeredCountryGeonameId;
-        return this;
-    }
-
-    public Block representedCountryGeonameId(String representedCountryGeonameId) {
-        this.representedCountryGeonameId = representedCountryGeonameId;
-        return this;
-    }
-
-    public Block isAnonymousProxy(String isAnonymousProxy) {
-        this.isAnonymousProxy = isAnonymousProxy;
-        return this;
-    }
-
-    public Block isSatelliteProvider(String isSatelliteProvider) {
-        this.isSatelliteProvider = isSatelliteProvider;
-        return this;
-    }
-
-    public Block postalCode(String postalCode) {
-        this.postalCode = postalCode;
-        return this;
-    }
-
-    public Block latitude(String latitude) {
-        this.latitude = latitude;
-        return this;
-    }
-
-    public Block longitude(String longitude) {
-        this.longitude = longitude;
-        return this;
-    }
-
-    public Block accuracyRadius(String accuracyRadius) {
-        this.accuracyRadius = accuracyRadius;
-        return this;
-    }
-
-    public Block startip(BigDecimal startip) {
-        this.startip = startip;
-        return this;
-    }
-
-    public Block endip(BigDecimal endip) {
-        this.endip = endip;
-        return this;
-    }
-
-    public Block location(Location location) {
-        this.location = location;
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Block)) {
-            return false;
+        public Builder() {
         }
-        Block block = (Block) o;
-        return Objects.equals(network, block.network) && Objects.equals(geonameId, block.geonameId) && Objects.equals(registeredCountryGeonameId, block.registeredCountryGeonameId) && Objects.equals(representedCountryGeonameId, block.representedCountryGeonameId) && Objects.equals(isAnonymousProxy, block.isAnonymousProxy) && Objects.equals(isSatelliteProvider, block.isSatelliteProvider) && Objects.equals(postalCode, block.postalCode) && Objects.equals(latitude, block.latitude) && Objects.equals(longitude, block.longitude) && Objects.equals(accuracyRadius, block.accuracyRadius) && Objects.equals(startip, block.startip) && Objects.equals(endip, block.endip) && Objects.equals(location, block.location);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(network, geonameId, registeredCountryGeonameId, representedCountryGeonameId, isAnonymousProxy, isSatelliteProvider, postalCode, latitude, longitude, accuracyRadius, startip, endip, location);
+        public Builder network(@NotNull(message = "{locateipaddress.network.required") String val) {
+            network = val;
+            return this;
+        }
+
+        public Builder geonameId(String val) {
+            geonameId = val;
+            return this;
+        }
+
+        public Builder registeredCountryGeonameId(String val) {
+            registeredCountryGeonameId = val;
+            return this;
+        }
+
+        public Builder representedCountryGeonameId(String val) {
+            representedCountryGeonameId = val;
+            return this;
+        }
+
+        public Builder isAnonymousProxy(String val) {
+            isAnonymousProxy = val;
+            return this;
+        }
+
+        public Builder isSatelliteProvider(String val) {
+            isSatelliteProvider = val;
+            return this;
+        }
+
+        public Builder postalCode(String val) {
+            postalCode = val;
+            return this;
+        }
+
+        public Builder latitude(String val) {
+            latitude = val;
+            return this;
+        }
+
+        public Builder longitude(String val) {
+            longitude = val;
+            return this;
+        }
+
+        public Builder accuracyRadius(String val) {
+            accuracyRadius = val;
+            return this;
+        }
+
+        public Builder startip(BigDecimal val) {
+            startip = val;
+            return this;
+        }
+
+        public Builder endip(BigDecimal val) {
+            endip = val;
+            return this;
+        }
+
+        public Builder location(Location val) {
+            location = val;
+            return this;
+        }
+
+        public Block build() {
+            return new Block(this);
+        }
     }
 }

@@ -1,9 +1,9 @@
 package com.gmail.michzuerch.locateipaddress.ui.dataproviders;
 
+import com.vaadin.flow.component.ItemLabelGenerator;
+
 import java.util.function.Function;
 import java.util.function.Supplier;
-
-import com.vaadin.flow.component.ItemLabelGenerator;
 
 public class DataProviderUtil {
 

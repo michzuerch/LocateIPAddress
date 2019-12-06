@@ -1,10 +1,9 @@
 package com.gmail.michzuerch.locateipaddress.backend.repositories;
 
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.PickupLocation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.PickupLocation;
 
 public interface PickupLocationRepository extends JpaRepository<PickupLocation, Long> {
 

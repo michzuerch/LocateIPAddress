@@ -1,8 +1,8 @@
 package com.gmail.michzuerch.locateipaddress.backend.data;
 
-import java.util.Locale;
-
 import com.vaadin.flow.shared.util.SharedUtil;
+
+import java.util.Locale;
 
 public enum OrderState {
 	NEW, CONFIRMED, READY, DELIVERED, PROBLEM, CANCELLED;

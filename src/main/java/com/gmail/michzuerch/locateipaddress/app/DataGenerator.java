@@ -1,5 +1,15 @@
 package com.gmail.michzuerch.locateipaddress.app;
 
+import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
+import com.gmail.michzuerch.locateipaddress.backend.data.Role;
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.*;
+import com.gmail.michzuerch.locateipaddress.backend.repositories.*;
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StopWatch;
+
+import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,45 +21,20 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import javax.annotation.PostConstruct;
-
-import com.gmail.michzuerch.locateipaddress.backend.data.OrderState;
-import com.gmail.michzuerch.locateipaddress.backend.data.Role;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.BlockRepository;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.LocationRepository;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.OrderRepository;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.PickupLocationRepository;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.ProductRepository;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.util.StopWatch;
-
-import com.vaadin.flow.spring.annotation.SpringComponent;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Block;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Customer;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.HistoryItem;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Location;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.OrderItem;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.PickupLocation;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Product;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.User;
-
 @SpringComponent
 public class DataGenerator implements HasLogger {
 
-    private static final String[] FILLING = new String[] { "Strawberry", "Chocolate", "Blueberry", "Raspberry",
-            "Vanilla" };
-    private static final String[] TYPE = new String[] { "Cake", "Pastry", "Tart", "Muffin", "Biscuit", "Bread", "Bagel",
-            "Bun", "Brownie", "Cookie", "Cracker", "Cheese Cake" };
-    private static final String[] FIRST_NAME = new String[] { "Ori", "Amanda", "Octavia", "Laurel", "Lael", "Delilah",
+    private static final String[] FILLING = new String[]{"Strawberry", "Chocolate", "Blueberry", "Raspberry",
+            "Vanilla"};
+    private static final String[] TYPE = new String[]{"Cake", "Pastry", "Tart", "Muffin", "Biscuit", "Bread", "Bagel",
+            "Bun", "Brownie", "Cookie", "Cracker", "Cheese Cake"};
+    private static final String[] FIRST_NAME = new String[]{"Ori", "Amanda", "Octavia", "Laurel", "Lael", "Delilah",
             "Jason", "Skyler", "Arsenio", "Haley", "Lionel", "Sylvia", "Jessica", "Lester", "Ferdinand", "Elaine",
-            "Griffin", "Kerry", "Dominique" };
-    private static final String[] LAST_NAME = new String[] { "Carter", "Castro", "Rich", "Irwin", "Moore", "Hendricks",
+            "Griffin", "Kerry", "Dominique"};
+    private static final String[] LAST_NAME = new String[]{"Carter", "Castro", "Rich", "Irwin", "Moore", "Hendricks",
             "Huber", "Patton", "Wilkinson", "Thornton", "Nunez", "Macias", "Gallegos", "Blevins", "Mejia", "Pickett",
             "Whitney", "Farmer", "Henry", "Chen", "Macias", "Rowland", "Pierce", "Cortez", "Noble", "Howard", "Nixon",
-            "Mcbride", "Leblanc", "Russell", "Carver", "Benton", "Maldonado", "Lyons" };
+            "Mcbride", "Leblanc", "Russell", "Carver", "Benton", "Maldonado", "Lyons"};
 
     private final Random random = new Random(1L);
 
@@ -63,8 +48,8 @@ public class DataGenerator implements HasLogger {
 
     @Autowired
     public DataGenerator(OrderRepository orderRepository, UserRepository userRepository,
-            ProductRepository productRepository, PickupLocationRepository pickupLocationRepository,
-            LocationRepository locationRepository, BlockRepository blockRepository, PasswordEncoder passwordEncoder) {
+                         ProductRepository productRepository, PickupLocationRepository pickupLocationRepository,
+                         LocationRepository locationRepository, BlockRepository blockRepository, PasswordEncoder passwordEncoder) {
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.productRepository = productRepository;
@@ -109,7 +94,7 @@ public class DataGenerator implements HasLogger {
         createLocationsAndBlocks(locationRepository, blockRepository);
 
         stopWatch.stop();
-        getLogger().info("Generated demo data. Time:"+stopWatch.getTotalTimeMillis()+"ms.");
+        getLogger().info("Generated demo data. Time:" + stopWatch.getTotalTimeMillis() + "ms.");
     }
 
     private void fillCustomer(Customer customer) {
@@ -157,7 +142,7 @@ public class DataGenerator implements HasLogger {
     }
 
     private void createOrders(OrderRepository orderRepo, Supplier<Product> productSupplier,
-            Supplier<PickupLocation> pickupLocationSupplier, User barista, User baker) {
+                              Supplier<PickupLocation> pickupLocationSupplier, User barista, User baker) {
         int yearsToInclude = 2;
         LocalDate now = LocalDate.now();
         LocalDate oldestDate = LocalDate.of(now.getYear() - yearsToInclude, 1, 1);
@@ -184,7 +169,7 @@ public class DataGenerator implements HasLogger {
     }
 
     private Order createOrder(Supplier<Product> productSupplier, Supplier<PickupLocation> pickupLocationSupplier,
-            User barista, User baker, LocalDate dueDate) {
+                              User barista, User baker, LocalDate dueDate) {
         Order order = new Order(barista);
 
         fillCustomer(order.getCustomer());
@@ -395,7 +380,7 @@ public class DataGenerator implements HasLogger {
     }
 
     private User createUser(String email, String firstName, String lastName, String passwordHash, String role,
-            boolean locked) {
+                            boolean locked) {
         User user = new User();
         user.setEmail(email);
         user.setFirstName(firstName);
@@ -407,8 +392,8 @@ public class DataGenerator implements HasLogger {
     }
 
     private Block createBlock(String accuracyRadius, BigDecimal endip, String geonameId, String isAnonymousProxy,
-            String isSatelliteProvider, String latitude, String longitude, String network, String postalCode,
-            String registeredCountryGeonameId, String representedCountryGeonameId, BigDecimal startip) {
+                              String isSatelliteProvider, String latitude, String longitude, String network, String postalCode,
+                              String registeredCountryGeonameId, String representedCountryGeonameId, BigDecimal startip) {
         Block block = new Block();
         block.setAccuracyRadius(accuracyRadius);
         block.setEndip(endip);
@@ -426,10 +411,10 @@ public class DataGenerator implements HasLogger {
     }
 
     private Location createLocation(String city, String cityName, String continentCode, String continentName,
-            String country, String countryIsoCode, String countryName, String geonameId, String isInEuropeanUnion,
-            BigDecimal latitude, String localeCode, String metroCode, String timeZone, BigDecimal longitude,
-            String postalcode, String subdivision1isoCode, String subdivision1name, String subdivision2isoCode,
-            String subdivision2name) {
+                                    String country, String countryIsoCode, String countryName, String geonameId, String isInEuropeanUnion,
+                                    BigDecimal latitude, String localeCode, String metroCode, String timeZone, BigDecimal longitude,
+                                    String postalcode, String subdivision1isoCode, String subdivision1name, String subdivision2isoCode,
+                                    String subdivision2name) {
         Location location = new Location();
         location.setCity(city);
         location.setCityName(cityName);

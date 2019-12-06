@@ -1,5 +1,9 @@
 package com.gmail.michzuerch.locateipaddress.app.security;
 
+import com.gmail.michzuerch.locateipaddress.backend.data.Role;
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.User;
+import com.gmail.michzuerch.locateipaddress.backend.repositories.UserRepository;
+import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -15,18 +19,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
-import com.gmail.michzuerch.locateipaddress.backend.data.Role;
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.User;
-import com.gmail.michzuerch.locateipaddress.backend.repositories.UserRepository;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
-
 /**
  * Configures spring security, doing the following:
  * <li>Bypass security checks for static resources,</li>
  * <li>Restrict access to the application, allowing only logged in users,</li>
  * <li>Set up the login form,</li>
  * <li>Configures the {@link UserDetailsServiceImpl}.</li>
-
  */
 @EnableWebSecurity
 @Configuration
@@ -41,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	public SecurityConfiguration(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
@@ -60,8 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public CurrentUser currentUser(UserRepository userRepository) {
 		final String username = SecurityUtils.getUsername();
 		User user =
-			username != null ? userRepository.findByEmailIgnoreCase(username) :
-				null;
+				username != null ? userRepository.findByEmailIgnoreCase(username) :
+						null;
 		return () -> user;
 	}
 

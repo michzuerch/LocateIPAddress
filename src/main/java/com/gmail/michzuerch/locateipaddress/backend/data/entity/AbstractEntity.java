@@ -1,12 +1,11 @@
 package com.gmail.michzuerch.locateipaddress.backend.data.entity;
 
-import java.io.Serializable;
-import java.util.Objects;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
+import java.io.Serializable;
+import java.util.Objects;
 
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {

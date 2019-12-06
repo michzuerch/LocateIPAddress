@@ -1,9 +1,9 @@
 package com.gmail.michzuerch.locateipaddress.backend.data;
 
+import com.gmail.michzuerch.locateipaddress.backend.data.entity.Product;
+
 import java.util.LinkedHashMap;
 import java.util.List;
-
-import com.gmail.michzuerch.locateipaddress.backend.data.entity.Product;
 
 public class DashboardData {
 
