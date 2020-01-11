@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.*;
+import static com.gmail.michzuerch.locateipaddress.ui.config.Pages.*;
 
 @Viewport(VIEWPORT)
 @PWA(name = "LocateIPAddress Starter", shortName = "locateipaddress-app",

@@ -5,7 +5,7 @@ import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.util.EntityUtil;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
 import com.gmail.michzuerch.locateipaddress.ui.components.SearchBar;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import com.gmail.michzuerch.locateipaddress.ui.views.EntityView;
 import com.gmail.michzuerch.locateipaddress.ui.views.orderedit.OrderDetails;
 import com.gmail.michzuerch.locateipaddress.ui.views.orderedit.OrderEditor;
@@ -27,10 +27,10 @@ import java.util.stream.Stream;
 
 @Tag("storefront-view")
 @JsModule("./src/views/storefront/storefront-view.js")
-@Route(value = I18nConst.PAGE_STOREFRONT, layout = MainView.class)
-@RouteAlias(value = I18nConst.PAGE_STOREFRONT_EDIT, layout = MainView.class)
-@RouteAlias(value = I18nConst.PAGE_ROOT, layout = MainView.class)
-@PageTitle(I18nConst.TITLE_STOREFRONT)
+@Route(value = Pages.PAGE_STOREFRONT, layout = MainView.class)
+@RouteAlias(value = Pages.PAGE_STOREFRONT_EDIT, layout = MainView.class)
+@RouteAlias(value = Pages.PAGE_ROOT, layout = MainView.class)
+@PageTitle(Pages.TITLE_STOREFRONT)
 public class StorefrontView extends PolymerTemplate<TemplateModel>
 		implements HasLogger, HasUrlParameter<Long>, EntityView<Order> {
 
@@ -61,7 +61,7 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 				.withProperty("orderCard", OrderCard::create)
 				.withProperty("header", order -> presenter.getHeaderByOrderId(order.getId()))
 				.withEventHandler("cardClick",
-						order -> UI.getCurrent().navigate(I18nConst.PAGE_STOREFRONT + "/" + order.getId())));
+						order -> UI.getCurrent().navigate(Pages.PAGE_STOREFRONT + "/" + order.getId())));
 
 		getSearchBar().addFilterChangeListener(
 				e -> presenter.filterChanged(getSearchBar().getFilter(), getSearchBar().isCheckboxChecked()));
@@ -88,7 +88,7 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 
 	@Override
 	public void setParameter(BeforeEvent event, @OptionalParameter Long orderId) {
-		boolean editView = event.getLocation().getPath().contains(I18nConst.PAGE_STOREFRONT_EDIT);
+		boolean editView = event.getLocation().getPath().contains(Pages.PAGE_STOREFRONT_EDIT);
 		if (orderId != null) {
 			presenter.onNavigation(orderId, editView);
 		} else if (dialog.isOpened()) {
@@ -97,7 +97,7 @@ public class StorefrontView extends PolymerTemplate<TemplateModel>
 	}
 
 	void navigateToMainView() {
-		getUI().ifPresent(ui -> ui.navigate(I18nConst.PAGE_STOREFRONT));
+		getUI().ifPresent(ui -> ui.navigate(Pages.PAGE_STOREFRONT));
 	}
 
 	@Override

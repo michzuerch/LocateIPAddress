@@ -7,8 +7,8 @@ import com.gmail.michzuerch.locateipaddress.backend.data.entity.OrderSummary;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Product;
 import com.gmail.michzuerch.locateipaddress.backend.service.OrderService;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import com.gmail.michzuerch.locateipaddress.ui.dataproviders.OrdersGridDataProvider;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.utils.FormattingUtils;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.OrderCard;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.beans.OrdersCountDataWithChart;
@@ -38,8 +38,8 @@ import java.util.stream.IntStream;
 
 @Tag("dashboard-view")
 @JsModule("./src/views/dashboard/dashboard-view.js")
-@Route(value = I18nConst.PAGE_DASHBOARD, layout = MainView.class)
-@PageTitle(I18nConst.TITLE_DASHBOARD)
+@Route(value = Pages.PAGE_DASHBOARD, layout = MainView.class)
+@PageTitle(Pages.TITLE_DASHBOARD)
 public class DashboardView extends PolymerTemplate<TemplateModel> {
 
     private static final long serialVersionUID = 1L;
@@ -87,7 +87,7 @@ public class DashboardView extends PolymerTemplate<TemplateModel> {
                 .withProperty("orderCard", OrderCard::create)
                 .withProperty("header", order -> null)
                 .withEventHandler("cardClick",
-                        order -> UI.getCurrent().navigate(I18nConst.PAGE_STOREFRONT + "/" + order.getId())));
+                        order -> UI.getCurrent().navigate(Pages.PAGE_STOREFRONT + "/" + order.getId())));
 
         grid.setSelectionMode(Grid.SelectionMode.NONE);
         grid.setDataProvider(orderDataProvider);

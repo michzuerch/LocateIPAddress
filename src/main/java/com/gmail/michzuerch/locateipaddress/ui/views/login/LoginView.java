@@ -1,7 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.ui.views.login;
 
 import com.gmail.michzuerch.locateipaddress.app.security.SecurityUtils;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.StorefrontView;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.login.LoginI18n;
@@ -12,7 +12,7 @@ import com.vaadin.flow.router.*;
 @Route
 @PageTitle("LocateIPAddress")
 @JsModule("./styles/shared-styles.js")
-@Viewport(I18nConst.VIEWPORT)
+@Viewport(Pages.VIEWPORT)
 public class LoginView extends LoginOverlay
         implements AfterNavigationObserver, BeforeEnterObserver {
 

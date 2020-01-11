@@ -3,7 +3,7 @@ package com.gmail.michzuerch.locateipaddress.app.security;
 import com.gmail.michzuerch.locateipaddress.backend.data.Role;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.User;
 import com.gmail.michzuerch.locateipaddress.backend.repositories.UserRepository;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private static final String LOGIN_PROCESSING_URL = "/login";
 	private static final String LOGIN_FAILURE_URL = "/login?error";
 	private static final String LOGIN_URL = "/login";
-	private static final String LOGOUT_SUCCESS_URL = "/" + I18nConst.PAGE_STOREFRONT;
+	private static final String LOGOUT_SUCCESS_URL = "/" + Pages.PAGE_STOREFRONT;
 
 	private final UserDetailsService userDetailsService;
 

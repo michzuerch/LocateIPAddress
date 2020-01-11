@@ -1,7 +1,7 @@
 package com.gmail.michzuerch.locateipaddress.ui.views.errors;
 
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.dependency.JsModule;
@@ -11,7 +11,7 @@ import com.vaadin.flow.router.*;
 import javax.servlet.http.HttpServletResponse;
 
 @ParentLayout(MainView.class)
-@PageTitle(I18nConst.TITLE_NOT_FOUND)
+@PageTitle(Pages.TITLE_NOT_FOUND)
 @JsModule("./styles/shared-styles.js")
 public class CustomRouteNotFoundError extends RouteNotFoundError {
 

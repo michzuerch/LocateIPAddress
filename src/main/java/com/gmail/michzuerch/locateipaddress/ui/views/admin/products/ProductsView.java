@@ -5,8 +5,8 @@ import com.gmail.michzuerch.locateipaddress.backend.data.Role;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Product;
 import com.gmail.michzuerch.locateipaddress.backend.service.ProductService;
 import com.gmail.michzuerch.locateipaddress.ui.MainView;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import com.gmail.michzuerch.locateipaddress.ui.crud.AbstractBakeryCrudView;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.utils.converters.CurrencyFormatter;
 import com.vaadin.flow.component.crud.BinderCrudEditor;
 import com.vaadin.flow.component.formlayout.FormLayout;
@@ -21,10 +21,10 @@ import org.springframework.security.access.annotation.Secured;
 
 import java.util.Currency;
 
-import static com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst.PAGE_PRODUCTS;
+import static com.gmail.michzuerch.locateipaddress.ui.config.Pages.PAGE_PRODUCTS;
 
 @Route(value = PAGE_PRODUCTS, layout = MainView.class)
-@PageTitle(I18nConst.TITLE_PRODUCTS)
+@PageTitle(Pages.TITLE_PRODUCTS)
 @Secured(Role.ADMIN)
 public class ProductsView extends AbstractBakeryCrudView<Product> {
 
@@ -52,7 +52,7 @@ public class ProductsView extends AbstractBakeryCrudView<Product> {
         price.setPattern("\\d+(\\.\\d?\\d?)?$");
         price.setPreventInvalidInput(true);
 
-        String currencySymbol = Currency.getInstance(I18nConst.APP_LOCALE).getSymbol();
+        String currencySymbol = Currency.getInstance(Pages.APP_LOCALE).getSymbol();
         price.setPrefixComponent(new Span(currencySymbol));
 
         return new BinderCrudEditor<Product>(binder, form);

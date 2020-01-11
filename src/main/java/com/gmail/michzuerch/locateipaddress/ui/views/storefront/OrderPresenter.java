@@ -3,9 +3,9 @@ package com.gmail.michzuerch.locateipaddress.ui.views.storefront;
 import com.gmail.michzuerch.locateipaddress.app.security.CurrentUser;
 import com.gmail.michzuerch.locateipaddress.backend.data.entity.Order;
 import com.gmail.michzuerch.locateipaddress.backend.service.OrderService;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
 import com.gmail.michzuerch.locateipaddress.ui.crud.EntityPresenter;
 import com.gmail.michzuerch.locateipaddress.ui.dataproviders.OrdersGridDataProvider;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
 import com.gmail.michzuerch.locateipaddress.ui.views.storefront.beans.OrderCardHeader;
 import com.vaadin.flow.component.Focusable;
 import com.vaadin.flow.component.HasValue;
@@ -82,7 +82,7 @@ public class OrderPresenter {
 	}
 
 	void edit() {
-		UI.getCurrent().navigate(I18nConst.PAGE_STOREFRONT_EDIT + "/" + entityPresenter.getEntity().getId());
+		UI.getCurrent().navigate(Pages.PAGE_STOREFRONT_EDIT + "/" + entityPresenter.getEntity().getId());
 	}
 
 	void back() {

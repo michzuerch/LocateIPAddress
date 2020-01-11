@@ -1,23 +1,22 @@
 package com.gmail.michzuerch.locateipaddress.testbench;
 
-import static org.hamcrest.CoreMatchers.containsString;
-
-import java.util.Random;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import org.junit.Assert;
-import org.junit.Test;
-
-import com.vaadin.flow.component.button.testbench.ButtonElement;
-import com.vaadin.flow.component.notification.testbench.NotificationElement;
-import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.components.OrderCardElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.OrderItemEditorElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.StorefrontViewElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.StorefrontViewElement.OrderEditorElement;
 import com.gmail.michzuerch.locateipaddress.testbench.elements.ui.UsersViewElement;
-import com.gmail.michzuerch.locateipaddress.ui.i18n.I18nConst;
+import com.gmail.michzuerch.locateipaddress.ui.config.Pages;
+import com.vaadin.flow.component.button.testbench.ButtonElement;
+import com.vaadin.flow.component.notification.testbench.NotificationElement;
+import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static org.hamcrest.CoreMatchers.containsString;
 
 public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 
@@ -39,7 +38,7 @@ public class StorefrontViewIT extends AbstractIT<StorefrontViewElement> {
 		order.click();
 		ButtonElement editBtn = storefrontPage.getOrderDetails().getEditButton();
 		editBtn.click();
-		Assert.assertThat(getDriver().getCurrentUrl(), containsString(I18nConst.PAGE_STOREFRONT_EDIT));
+		Assert.assertThat(getDriver().getCurrentUrl(), containsString(Pages.PAGE_STOREFRONT_EDIT));
 
 		OrderEditorElement orderEditor = storefrontPage.getOrderEditor();
 		orderEditor.getOrderItemEditor(0).clickAmountFieldPlus();
